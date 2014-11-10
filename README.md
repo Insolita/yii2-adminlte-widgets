@@ -1,22 +1,23 @@
 Виджеты AdminLte интерфейса
 ===========================
-Виджеты AdminLte интерфейса
+Виджеты AdminLte интерфейса  (for https://github.com/trntv/yii2-starter-kit)
 
 Box-widget with support collapse buttons and can save collapsed state in cookie
+support solid style
 
 Usage
 ------
 
 ```
- <?php \insolita\wgadminlte\Box::begin([
-            'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
-            'solid'=>true,
-            'tooltip'=>'Описание содаржимого',
-            'title'=>'Управление пользователями',
-            'footer'=>'Всего '.User::counter().' активных пользователей',
-            'collapse'=>true,
-             'collapse_remember'=>true
-        ])?>
+    <?php \insolita\wgadminlte\Box::begin([
+             'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
+             'solid'=>true,
+             'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Добавить</button>',
+             'tooltip'=>'Описание содаржимого',
+             'title'=>'Управление пользователями',
+             'footer'=>'Всего '.User::counter().' активных пользователей',
+             'collapse'=>true
+         ])?>
         ANY BOX CONTENT HERE
    <?php \insolita\wgadminlte\Box::end()?>
 ```

@@ -28,6 +28,9 @@ class Box extends Widget
     /**@var string $tooltip box -tooltip* */
     public $tooltip = '';
 
+    /**@var string $tooltip_placement -top/bottom/left/or right **/
+    public $tooltip_placement='bottom';
+
     /**@var string $title * */
     public $title = '';
 
@@ -43,6 +46,10 @@ class Box extends Widget
     /**@var string $custom_tools code of custom box toolbar**/
     public $custom_tools = '';
 
+    /**@var string $left_tools code of custom box toolbar in left corner**/
+    public $left_tools = '';
+
+
     private $cid = null;
 
     public function init()
@@ -50,10 +57,11 @@ class Box extends Widget
         $this->cid = 'bc_' . $this->getId();
         $this->registerJs();
         echo '<div class="box box-' . $this->type . (!$this->solid ? '' : ' box-solid') . '" id="' . $this->cid . '">'
-            . (!$this->title && !$this->collapse && !$this->custom_tools
+            . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : '<div class="box-header"'
-                . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '"') . '>'
+                . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '" data-placement="'.$this->tooltip_placement.'"') . '>'
+                . (!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>')
                 . (!$this->title ? '' : '<h3 class="box-title">' . $this->title . '</h3>')
                 . (!$this->collapse
                     ? ''
