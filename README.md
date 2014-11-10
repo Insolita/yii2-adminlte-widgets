@@ -1,6 +1,6 @@
-Виджеты AdminLte интерфейса
+Widgets for AdminLte theme
 ===========================
-Виджеты AdminLte интерфейса  (for https://github.com/trntv/yii2-starter-kit)
+Widgets for AdminLte theme  (for https://github.com/trntv/yii2-starter-kit)
 
 See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
