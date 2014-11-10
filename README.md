@@ -2,6 +2,26 @@
 ===========================
 Виджеты AdminLte интерфейса
 
+Box-widget with support collapse buttons and can save collapsed state in cookie
+
+Usage
+------
+
+```
+ <?php \insolita\wgadminlte\Box::begin([
+            'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
+            'solid'=>true,
+            'tooltip'=>'Описание содаржимого',
+            'title'=>'Управление пользователями',
+            'footer'=>'Всего '.User::counter().' активных пользователей',
+            'collapse'=>true,
+             'collapse_remember'=>true
+        ])?>
+        ANY BOX CONTENT HERE
+   <?php \insolita\wgadminlte\Box::end()?>
+```
+
+
 Installation
 ------------
 
@@ -21,11 +41,3 @@ or add
 
 to the require section of your `composer.json` file.
 
-
-Usage
------
-
-Once the extension is installed, simply use it in your code by  :
-
-```php
-<?= \insolita\wgadminlte\AutoloadExample::widget(); ?>```
