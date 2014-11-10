@@ -2,7 +2,7 @@
 ===========================
 Виджеты AdminLte интерфейса  (for https://github.com/trntv/yii2-starter-kit)
 
-See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  examples
+See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
 Box-widget with support collapse buttons and can save collapsed state in cookie
 support solid style
@@ -12,6 +12,8 @@ Tile-widget - similar as box, with same options but with background
 Smallbox-widget
 Alert-widget
 Callout-widget
+
+Also Timeline Widget - see more info about it in file Timeline.md
 
 Usage
 ------

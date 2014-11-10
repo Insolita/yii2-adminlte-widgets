@@ -22,6 +22,12 @@ class SmallBox extends Widget
     const TYPE_PURPLE = 'purple';
     const TYPE_MAR = 'maroon';
     const TYPE_TEAL = 'teal';
+    const TYPE_OLIVE = 'olive';
+    const TYPE_LIME = 'lime';
+    const TYPE_ORANGE = 'orange';
+    const TYPE_FUS = 'fuchsia';
+    const TYPE_BLACK = 'black';
+    const TYPE_GRAY = 'gray';
 
     /**@var string $type color style of widget* */
 
