@@ -20,6 +20,7 @@ class Tile extends Widget
     const TYPE_YEL = 'yellow';
     const TYPE_PURPLE='purple';
     const TYPE_MAR='maroon';
+    const TYPE_TEAL='teal';
 
     /**@var string $type color style of widget* */
 

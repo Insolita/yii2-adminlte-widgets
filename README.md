@@ -9,6 +9,8 @@ support solid style
 
 Tile-widget - similar as box, with same options but with background
 
+Smallbox-widget
+
 Usage
 ------
 
@@ -35,7 +37,15 @@ Usage
          ANY BOX CONTENT HERE
           ANY BOX CONTENT HERE
            ANY BOX CONTENT HERE
-       <?php \insolita\wgadminlte\Tile::end()?>
+   <?php \insolita\wgadminlte\Tile::end()?>
+
+ <?php echo \insolita\wgadminlte\SmallBox::widget([
+                    'head'=>'90%',
+                    'text'=>'Free Space',
+                    'icon'=>'fa fa-cloud-download',
+                    'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
+                    'footer_link'=>'#'
+                ]);?>
 
 ```
 
