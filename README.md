@@ -2,8 +2,12 @@
 ===========================
 Виджеты AdminLte интерфейса  (for https://github.com/trntv/yii2-starter-kit)
 
+See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  examples
+
 Box-widget with support collapse buttons and can save collapsed state in cookie
 support solid style
+
+Tile-widget - similar as box, with same options but with background
 
 Usage
 ------
@@ -20,6 +24,19 @@ Usage
          ])?>
         ANY BOX CONTENT HERE
    <?php \insolita\wgadminlte\Box::end()?>
+
+   <?php \insolita\wgadminlte\Tile::begin([
+               'type'=>\insolita\wgadminlte\Tile::TYPE_RED,
+               'tooltip'=>'Useful information!',
+               'title'=>'Attention!',
+               'collapse'=>false
+           ])?>
+        ANY BOX CONTENT HERE
+         ANY BOX CONTENT HERE
+          ANY BOX CONTENT HERE
+           ANY BOX CONTENT HERE
+       <?php \insolita\wgadminlte\Tile::end()?>
+
 ```
 
 

@@ -2,27 +2,28 @@
 
 namespace insolita\wgadminlte;
 
+use yii\base\InvalidConfigException;
 use yii\web\JsExpression;
 use yii\base\Widget;
 
 /**
  * This is just an example.
  */
-class Box extends Widget
+class Tile extends Widget
 {
-    const TYPE_INFO = 'info';
-    const TYPE_PRIMARY = 'primary';
-    const TYPE_SUCCESS = 'success';
-    const TYPE_DEFAULT = 'default';
-    const TYPE_DANGER = 'danger';
-    const TYPE_WARNING = 'warning';
+    const TYPE_NAVY = 'navy';
+    const TYPE_LBLUE = 'light-blue';
+    const TYPE_BLUE = 'blue';
+    const TYPE_AQUA = 'aqua';
+    const TYPE_RED = 'red';
+    const TYPE_GREEN = 'green';
+    const TYPE_YEL = 'yellow';
+    const TYPE_PURPLE='purple';
+    const TYPE_MAR='maroon';
 
     /**@var string $type color style of widget* */
 
-    public $type = self::TYPE_DEFAULT;
-
-    /**@var boolean $solid is solid box header* */
-    public $solid = false;
+    public $type = self::TYPE_LBLUE;
 
     /**@var string $tooltip box -tooltip* */
     public $tooltip = '';
@@ -53,9 +54,9 @@ class Box extends Widget
 
     public function init()
     {
-        $this->cid = 'bc_' . $this->getId();
+        $this->cid = 'tilec_' . $this->getId();
         $this->registerJs();
-        echo '<div class="box box-' . $this->type . (!$this->solid ? '' : ' box-solid') . '" id="' . $this->cid . '">'
+        echo '<div class="box box-solid bg-' . $this->type . '" id="' . $this->cid . '">'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : '<div class="box-header"'
