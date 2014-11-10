@@ -1,0 +1,21 @@
+{
+    "name": "insolita/yii2-adminlte-widgets",
+    "description": "Виджеты AdminLte интерфейса",
+    "type": "yii2-extension",
+    "keywords": ["yii2","widget","adminlte"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "insolita",
+            "email": "donnainsolita@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "insolita\\wgadminlte\\": ""
+        }
+    }
+}
