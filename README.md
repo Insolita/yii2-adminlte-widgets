@@ -10,6 +10,8 @@ support solid style
 Tile-widget - similar as box, with same options but with background
 
 Smallbox-widget
+Alert-widget
+Callout-widget
 
 Usage
 ------
@@ -25,7 +27,7 @@ Usage
              'collapse'=>true
          ])?>
         ANY BOX CONTENT HERE
-   <?php \insolita\wgadminlte\Box::end()?>
+    <?php \insolita\wgadminlte\Box::end()?>
 
    <?php \insolita\wgadminlte\Tile::begin([
                'type'=>\insolita\wgadminlte\Tile::TYPE_RED,
@@ -39,13 +41,26 @@ Usage
            ANY BOX CONTENT HERE
    <?php \insolita\wgadminlte\Tile::end()?>
 
- <?php echo \insolita\wgadminlte\SmallBox::widget([
-                    'head'=>'90%',
-                    'text'=>'Free Space',
-                    'icon'=>'fa fa-cloud-download',
-                    'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
-                    'footer_link'=>'#'
-                ]);?>
+   <?php echo \insolita\wgadminlte\SmallBox::widget([
+	                    'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
+	                    'head'=>'90%',
+	                    'text'=>'Free Space',
+	                    'icon'=>'fa fa-cloud-download',
+	                    'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
+	                    'footer_link'=>'#'
+	                ]);?>
+
+   <?=\insolita\wgadminlte\Alert::widget([
+              'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
+              'text'=>'Operation Complete',
+              'closable'=>true
+          ]);?>
+
+   <?=\insolita\wgadminlte\Callout::widget([
+            'type'=>\insolita\wgadminlte\Alert::TYPE_WARNING,
+            'head'=>'Operation Complete',
+            'text'=>'Something text bla-bla-bla bla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-bla'
+        ]);?>
 
 ```
 
