@@ -4,11 +4,12 @@ namespace insolita\wgadminlte;
 
 use yii\base\InvalidConfigException;
 use yii\web\JsExpression;
+use yii\base\Widget;
 
 /**
  * This is just an example.
  */
-class Box extends \yii\base\Widget
+class Box extends Widget
 {
     const TYPE_INFO='info';
     const TYPE_PRIMARY='primary';
@@ -46,24 +47,25 @@ class Box extends \yii\base\Widget
 
     public function init(){
         $this->cid='bc_'.$this->getId();
+        $this->registerJs();
         if($this->collapse && $this->custom_tools){
             throw new InvalidConfigException(\Yii::t('app','Only one of settings - collapse or custom_tools can be enabled'));
         }
         echo  '<div class="box box-'.$this->type.(!$this->solid?'':' box-solid').'" id="'.$this->cid.'">'
-        .(!$this->title && !$this->collapse && !$this->custom_tools?'':'<div class="box-header"'
-            .(!$this->tooltip?'':'data-toggle="tooltip" data-original-title="'.$this->tooltip.'"').'>'
-            .(!$this->title?'':'<h3 class="box-title">'.$this->title.'</h3>')
-            .(!$this->collapse?'':'<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="collapse" id="'.$this->cid.'_btn">
+            .(!$this->title && !$this->collapse && !$this->custom_tools?'':'<div class="box-header"'
+                .(!$this->tooltip?'':'data-toggle="tooltip" data-original-title="'.$this->tooltip.'"').'>'
+                .(!$this->title?'':'<h3 class="box-title">'.$this->title.'</h3>')
+                .(!$this->collapse?'':'<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="collapse" id="'.$this->cid.'_btn">
                                    <i class="fa fa-minus"></i></button></div>')
-            .(!$this->custom_tools?'':'<div class="box-tools pull-right">'.$this->custom_tools.'</div>')
-            .'</div>')
-        .'<div class="box-body">';
+                .(!$this->custom_tools?'':'<div class="box-tools pull-right">'.$this->custom_tools.'</div>')
+                .'</div>')
+            .'<div class="box-body">';
     }
     public function run()
     {
         echo '</div>'
-               .(!$this->footer?'':"<div class='box-footer'>".$this->footer."</div>")
-               .'</div>';
+            .(!$this->footer?'':"<div class='box-footer'>".$this->footer."</div>")
+            .'</div>';
     }
 
     public function registerJs(){
@@ -94,6 +96,7 @@ class Box extends \yii\base\Widget
                         }
                    });
             ');
+            $view->registerJs($js);
         }
 
 
