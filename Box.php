@@ -92,7 +92,7 @@ class Box extends Widget
                         var bf = box.find(".box-body, .box-footer");
                         if (!box.hasClass("collapsed-box")) {
                             box.addClass("collapsed-box");
-                            bf.slideUp();
+                            bf.hide();
                         }
                    }
 
