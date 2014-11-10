@@ -1,6 +1,6 @@
 {
     "name": "insolita/yii2-adminlte-widgets",
-    "description": "Виджеты AdminLte интерфейса",
+    "description": "Widgets for AdminLTE theme (Box with remember collapse state, Timeline, Tile, Callout, SmallBox etc)",
     "type": "yii2-extension",
     "keywords": ["yii2","widget","adminlte"],
     "license": "MIT",
