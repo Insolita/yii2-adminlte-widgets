@@ -9,12 +9,12 @@
 namespace insolita\wgadminlte;
 
 use \yii\web\AssetBundle;
-class JCookieAsset  extends AssetBundle{
-    public $sourcePath = '@bower/jquery-cookie/src';
+class ExtAdminlteAsset  extends AssetBundle{
+    public $sourcePath = '@vendor/insolita/yii2-adminlte-widgets/js';
 
     public $js
         = [
-            'jquery.cookie.js',
+            'admlteext.js',
         ];
 
     public $depends=[

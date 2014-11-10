@@ -85,8 +85,9 @@ class Box extends Widget
         if ($this->collapse_remember && $this->collapse) {
             $view = $this->getView();
             JCookieAsset::register($view);
+            ExtAdminlteAsset::register($view);
             $js = new JsExpression(
-                'if($.cookie("' . $this->cid . '_state")==1){
+                'if($.cookie("' . $this->cid . '_state")=="hide"){
                         var box = $("#' . $this->cid . '");
                         var bf = box.find(".box-body, .box-footer");
                         if (!box.hasClass("collapsed-box")) {
@@ -94,21 +95,7 @@ class Box extends Widget
                             bf.slideUp();
                         }
                    }
-                   $("[data-widget=\'collapse\']").click(function() {e.preventDefault();});
-                   $("#' . $this->cid . '_btn").click(function(e){
-                        e.preventDefault();
-                        var box = $("#' . $this->cid . '");
-                        var bf = box.find(".box-body, .box-footer");
-                        if (!box.hasClass("collapsed-box")) {
-                            box.addClass("collapsed-box");
-                            $.cookie("' . $this->cid . '_state",1);
-                            bf.slideUp();
-                        } else {
-                            box.removeClass("collapsed-box");
-                            $.cookie("' . $this->cid . '_state",0);
-                            bf.slideDown();
-                        }
-                   });
+
             '
             );
             $view->registerJs($js);
