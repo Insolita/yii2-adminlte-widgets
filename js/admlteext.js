@@ -1,8 +1,8 @@
 /*
  * Add collapse and remove events to boxes And save cookies
  */
-$("[data-widget='collapse']").click(function(e) {
-	e.preventDefault();
+$("[data-widget='collapse']").unbind("click");
+$("[data-widget='collapse']").click(function() {
 	var box = $(this).parents(".box").first();
 	//Find the body and the footer
 	var bf = box.find(".box-body, .box-footer");
