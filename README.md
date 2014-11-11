@@ -2,8 +2,16 @@ Widgets for AdminLte theme
 ===========================
 Widgets for AdminLte theme
 (for https://github.com/trntv/yii2-starter-kit by default)
-if you use other AdminLte integration - change classMap or replace by Yii::$container in class ExtAdminlteAsset
+if you use other AdminLte integration -   replace by Yii::$container in class ExtAdminlteAsset
 depends from 'common\assets\AdminLTE' to your AdminLTE asset path
+```
+Yii::$container->set(\insolita\wgadminlte\ExtAdminlteAsset::className(),[
+        'depends'=>[
+            'yii\web\YiiAsset',
+            'your\path\to\assets\AdminLTE'
+        ]
+    ]);
+```
 
 See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
