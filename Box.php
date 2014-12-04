@@ -2,8 +2,9 @@
 
 namespace insolita\wgadminlte;
 
+use yii\bootstrap\Widget;
+use yii\helpers\Html;
 use yii\web\JsExpression;
-use yii\base\Widget;
 
 /**
  * This is just an example.
@@ -48,6 +49,8 @@ class Box extends Widget
     /**@var string $left_tools code of custom box toolbar in left corner**/
     public $left_tools = '';
 
+    public $header_tag='h3';
+
 
     private $cid = null;
 
@@ -61,7 +64,7 @@ class Box extends Widget
                 : '<div class="box-header"'
                 . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '" data-placement="'.$this->tooltip_placement.'"') . '>'
                 . (!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>')
-                . (!$this->title ? '' : '<h3 class="box-title">' . $this->title . '</h3>')
+                . (!$this->title ? '' : Html::tag($this->header_tag,$this->title,['class'=>'box-title']))
                 . (!$this->collapse
                     ? ''
                     :
@@ -79,7 +82,6 @@ class Box extends Widget
                 . '</div>')
             . '<div class="box-body">';
     }
-
     public function run()
     {
         echo '</div>'
@@ -91,6 +93,7 @@ class Box extends Widget
     {
         if ($this->collapse_remember && $this->collapse) {
             $view = $this->getView();
+
             JCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
             $js = new JsExpression(
