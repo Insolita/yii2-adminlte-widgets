@@ -2,9 +2,9 @@
 
 namespace insolita\wgadminlte;
 
-use yii\base\InvalidConfigException;
 use yii\web\JsExpression;
-use yii\base\Widget;
+use yii\bootstrap\Widget;
+use yii\helpers\Html;
 
 /**
  * This is just an example.
@@ -57,13 +57,20 @@ class Tile extends Widget
     public $left_tools = '';
 
 
-    private $cid = null;
+    private $_cid = null;
 
     public function init()
     {
-        $this->cid = 'tilec_' . $this->getId();
+        if (!isset($this->options['id'])) {
+            $this->_cid =$this->options['id'] = 'tilec_'.$this->getId();
+        }
+
+
+        Html::addCssClass($this->options,'box');
+        Html::addCssClass($this->options,'box-' . $this->type);
+        Html::addCssClass($this->options,'box-solid');
         $this->registerJs();
-        echo '<div class="box box-solid bg-' . $this->type . '" id="' . $this->cid . '">'
+        echo '<div '.Html::renderTagAttributes($this->options).'>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : '<div class="box-header"'
@@ -102,8 +109,8 @@ class Tile extends Widget
             JCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
             $js = new JsExpression(
-                'if($.cookie("' . $this->cid . '_state")=="hide"){
-                        var box = $("#' . $this->cid . '");
+                'if($.cookie("' . $this->_cid . '_state")=="hide"){
+                        var box = $("#' . $this->_cid . '");
                         var bf = box.find(".box-body, .box-footer");
                         if (!box.hasClass("collapsed-box")) {
                             box.addClass("collapsed-box");
