@@ -3,9 +3,7 @@
 namespace insolita\wgadminlte;
 
 use yii\base\InvalidConfigException;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\web\JsExpression;
 use yii\base\Widget;
 
 /**
@@ -79,9 +77,7 @@ class Timeline extends Widget
 
     public function run()
     {
-        echo '<ul class="timeline">'
-            . $this->renderItems()
-            . '</ul>';
+        echo Html::tag('ul',$this->renderItems(),['class'=>'timeline']);
     }
 
     public function renderItems(){
