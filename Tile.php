@@ -67,8 +67,9 @@ class Tile extends Widget
 
 
         Html::addCssClass($this->options,'box');
-        Html::addCssClass($this->options,'box-' . $this->type);
         Html::addCssClass($this->options,'box-solid');
+        Html::addCssClass($this->options,'bg-' . $this->type);
+
         $this->registerJs();
         echo '<div '.Html::renderTagAttributes($this->options).'>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
