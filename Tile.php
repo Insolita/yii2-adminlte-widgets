@@ -82,7 +82,7 @@ class Tile extends Widget
                     :
                     (!$this->custom_tools ?
                         '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="collapse" id="'
-                        . $this->cid . '_btn"><i class="fa fa-minus"></i></button></div>' : ''))
+                        . $this->_cid . '_btn"><i class="fa fa-minus"></i></button></div>' : ''))
                 . (!$this->custom_tools
                     ? ''
                     : '<div class="box-tools pull-right">' . $this->custom_tools
