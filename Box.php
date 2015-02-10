@@ -52,13 +52,21 @@ class Box extends Widget
     public $header_tag='h3';
 
 
-    private $cid = null;
+    private $_cid = null;
 
     public function init()
     {
-        $this->cid = 'bc_' . $this->getId();
+        if (!isset($this->options['id'])) {
+            $this->_cid =$this->options['id'] = 'bc_'.$this->getId();
+        }
         $this->registerJs();
-        echo '<div class="box box-' . $this->type . (!$this->solid ? '' : ' box-solid') . '" id="' . $this->cid . '">'
+        Html::addCssClass($this->options,'box');
+        Html::addCssClass($this->options,'box-' . $this->type);
+        if($this->solid){
+            Html::addCssClass($this->options,'box-solid');
+        }
+
+        echo '<div '.Html::renderTagAttributes($this->options).'>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : '<div class="box-header"'
@@ -97,8 +105,8 @@ class Box extends Widget
             JCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
             $js = new JsExpression(
-                'if($.cookie("' . $this->cid . '_state")=="hide"){
-                        var box = $("#' . $this->cid . '");
+                'if($.cookie("' . $this->_cid . '_state")=="hide"){
+                        var box = $("#' . $this->_cid . '");
                         var bf = box.find(".box-body, .box-footer");
                         if (!box.hasClass("collapsed-box")) {
                             box.addClass("collapsed-box");
