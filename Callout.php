@@ -27,14 +27,16 @@ class Callout extends Widget
     /**@var string $text your message* */
     public $text = '';
 
+    public $options=[];
+
 
 
     public function run()
     {
-        echo '<div class="callout callout-' . $this->type . '">'
-            . '<h4>'.$this->head.'</h4>'
-            . '<p>'.$this->text.'</p>'
-            . '</div>';
+        Html::addCssClass($this->options,'callout');
+        Html::addCssClass($this->options,'callout-' . $this->type);
+        echo Html::tag('div','<h4>'.$this->head.'</h4>'
+            . '<p>'.$this->text.'</p>',$this->options);
     }
 
 }
