@@ -2,10 +2,8 @@
 
 namespace insolita\wgadminlte;
 
-use yii\base\InvalidConfigException;
 use yii\helpers\Html;
-use yii\web\JsExpression;
-use yii\base\Widget;
+use yii\bootstrap\Widget;
 
 /**
  * This is just an example.
@@ -48,17 +46,15 @@ class SmallBox extends Widget
     /**@var string $footer_link link for footer**/
     public $footer_link='#';
 
-
     public function run()
     {
-        echo '<div class="small-box bg-' . $this->type . '">'
-            . '<div class="inner">'
-            . '<h3>' . $this->head . '</h3>'
-            . '<p>' . $this->text . '</p>'
-            . '</div>'
-            . '<div class="icon"><i class="' . $this->icon . '"></i></div>'
-            . Html::a($this->footer, $this->footer_link,['class'=>'small-box-footer'])
-            . '</div>';
+        Html::addCssClass($this->options, 'small-box');
+        Html::addCssClass($this->options, 'bg-' . $this->type);
+        $inner=Html::tag('div','<h3>' . $this->head . '</h3>' . '<p>' . $this->text . '</p>'.['class'=>'inner']);
+        $icon=Html::tag('div','<i class="' . $this->icon . '"></i>'.['class'=>'icon']);
+        echo Html::tag(
+            'div', $inner.$icon.Html::a($this->footer, $this->footer_link,['class'=>'small-box-footer']), $this->options
+        );
     }
 
 }
