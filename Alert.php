@@ -2,10 +2,8 @@
 
 namespace insolita\wgadminlte;
 
-use yii\base\InvalidConfigException;
+use \yii\bootstrap\Widget;
 use yii\helpers\Html;
-use yii\web\JsExpression;
-use yii\base\Widget;
 
 /**
  * This is just an example.
@@ -60,12 +58,18 @@ class Alert extends Widget
 
     public function run()
     {
-        echo '<div class="alert alert-' . $this->type . '" ' . (!$this->closable ? '' : 'alert-dismissable') . ' >'
-            . '<i class="' . $this->icon . '"></i>'
+        Html::addCssClass($this->options, 'alert');
+        Html::addCssClass($this->options, 'alert-' . $this->type);
+        if($this->closable){
+            Html::addCssClass($this->options, 'alert-dismissable');
+        }
+        echo Html::tag('div',
+            '<i class="' . $this->icon . '"></i>'
             . (!$this->closable ? ''
                 : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')
             . $this->text
-            . '</div>';
+            , $this->options
+        );
     }
 
 }
