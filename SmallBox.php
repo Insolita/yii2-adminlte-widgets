@@ -51,7 +51,7 @@ class SmallBox extends Widget
         Html::addCssClass($this->options, 'small-box');
         Html::addCssClass($this->options, 'bg-' . $this->type);
         $inner=Html::tag('div','<h3>' . $this->head . '</h3>' . '<p>' . $this->text . '</p>'.['class'=>'inner']);
-        $icon=Html::tag('div','<i class="' . $this->icon . '"></i>'.['class'=>'icon']);
+        $icon=Html::tag('div','<i class="' . $this->icon . '"></i>',['class'=>'icon']);
         echo Html::tag(
             'div', $inner.$icon.Html::a($this->footer, $this->footer_link,['class'=>'small-box-footer']), $this->options
         );
