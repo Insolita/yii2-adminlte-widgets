@@ -2,7 +2,7 @@
 
 namespace insolita\wgadminlte;
 
-use yii\base\Widget;
+use \yii\bootstrap\Widget;
 use yii\helpers\Html;
 
 /**
