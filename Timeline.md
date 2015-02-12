@@ -7,7 +7,7 @@ Usage
 ------
 
 
-```
+```php
 <?= \insolita\wgadminlte\Timeline::widget(
         [
             'defaultDateBg' => \insolita\wgadminlte\Timeline::TYPE_PURPLE, //default background for deate label
@@ -55,7 +55,7 @@ Usage
 
 Example TimeLine Generator
 
-```
+```php
 <?php
 $timeline_items=[];
 for ($i = 0; $i < 5; $i++) {
