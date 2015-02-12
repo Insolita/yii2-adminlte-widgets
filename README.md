@@ -6,6 +6,28 @@ if you use other AdminLte integration -   replace by AssetManager in class ExtAd
 depends from 'common\assets\AdminLTE' to your AdminLTE asset path
 
 
+```
+php
+'components'=>[
+//--------
+     'assetManager'=>[
+                 'class'=>'yii\web\AssetManager',
+                 'bundles'=>[
+                 //--------
+                     'insolita\wgadminlte\ExtAdminlteAsset'=>[
+                         'depends'=>[
+                             'yii\web\YiiAsset',
+                             'path\to\AdminLteAsset'
+                         ]
+                     ]
+
+             ],
+//--------
+
+]
+
+```
+
 See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
 Box-widget with support collapse buttons and can save collapsed state in cookie
