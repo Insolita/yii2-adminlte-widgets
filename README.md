@@ -6,8 +6,7 @@ if you use other AdminLte integration -   replace by AssetManager in class ExtAd
 depends from 'common\assets\AdminLTE' to your AdminLTE asset path
 
 
-```
-php
+```php
 'components'=>[
 //--------
      'assetManager'=>[
