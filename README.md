@@ -43,7 +43,7 @@ Also Timeline Widget - see more info about it in file Timeline.md
 Usage
 ------
 
-```
+```php
     <?php \insolita\wgadminlte\Box::begin([
              'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
              'solid'=>true,
