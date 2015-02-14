@@ -29,6 +29,26 @@ depends from 'common\assets\AdminLTE' to your AdminLTE asset path
 
 See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
+Installation
+------------
+
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+Either run
+
+```
+php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "*"
+```
+
+or add
+
+```
+"insolita/yii2-adminlte-widgets": "*"
+```
+
+to the require section of your `composer.json` file.
+
+
 Box-widget with support collapse buttons and can save collapsed state in cookie
 support solid style
 
@@ -39,6 +59,9 @@ Alert-widget
 Callout-widget
 
 Also Timeline Widget - see more info about it in file Timeline.md
+
+14.02.2015 Added: FlashAlerts Widget - widget for layout for show Yii flash messages in lte style and support multiple message in one style
+(So )
 
 Usage
 ------
@@ -91,23 +114,28 @@ Usage
 
 ```
 
+Add in layout
 
-Installation
-------------
-
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
-Either run
-
-```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "*"
-```
-
-or add
-
-```
-"insolita/yii2-adminlte-widgets": "*"
+```php
+<?=\insolita\wgadminlte\FlashAlerts::widget([
+                'errorIcon'=>'<i class="fa fa-warning"></i>',
+                'successIcon'=>'<i class="fa fa-check"></i>',
+                'successTitle'=>'Done!',
+                'closable'=>true,
+                'encode'=>false,
+                'bold'=>false
+                ]);?>
 ```
 
-to the require section of your `composer.json` file.
+And set flash messages anywhere
+
+```php
+Yii::$app->session->setFlash('info1','Message1');
+Yii::$app->session->setFlash('info2','Message2');
+Yii::$app->session->setFlash('info3','Message3');
+Yii::$app->session->setFlash('success-first','Message');
+Yii::$app->session->setFlash('success-second','Message');
+```
+
+
 
