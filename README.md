@@ -12,12 +12,14 @@ Alert-widget
 Callout-widget
 
 Also Timeline Widget - see more info about it in file Timeline.md
+
 See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
 
 CHANGELOG
 ---------
 
 14.02.2015 Added: FlashAlerts Widget - widget for layout for show Yii flash messages in lte style and support multiple message in one style
+
 07.03.2015 Remove dependency of common\assets\AdminLTE
 
 Independent of any AdminLte AssetBundles
