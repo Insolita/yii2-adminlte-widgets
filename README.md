@@ -16,9 +16,16 @@ depends from 'common\assets\AdminLTE' to your AdminLTE asset path
                      'insolita\wgadminlte\ExtAdminlteAsset'=>[
                          'depends'=>[
                              'yii\web\YiiAsset',
-                             'path\to\AdminLteAsset'
+                             'path\to\AdminLteAsset',
+                             'insolita\wgadminlte\JCookieAsset'
                          ]
-                     ]
+                     ],
+                     'insolita\wgadminlte\JCookieAsset'=>[
+                           'depends'=>[
+                               'yii\web\YiiAsset',
+                               'path\to\AdminLteAsset'
+                          ]
+                     ],
 
              ],
 //--------
