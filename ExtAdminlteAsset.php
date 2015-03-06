@@ -19,7 +19,7 @@ class ExtAdminlteAsset  extends AssetBundle{
 
     public $depends=[
         'yii\web\YiiAsset',
-        'common\assets\AdminLTE'
+        'insolita\wgadminlte\JCookieAsset'
     ];
 }
 

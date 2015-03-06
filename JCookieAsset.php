@@ -18,8 +18,7 @@ class JCookieAsset  extends AssetBundle{
         ];
 
     public $depends=[
-        'yii\web\YiiAsset',
-        'common\assets\AdminLTE'
+        'yii\web\YiiAsset'
     ];
 }
 

@@ -1,10 +1,27 @@
 Widgets for AdminLte theme
 ===========================
 Widgets for AdminLte theme
-(for https://github.com/trntv/yii2-starter-kit by default)
-if you use other AdminLte integration -   replace by AssetManager in class ExtAdminlteAsset
-depends from 'common\assets\AdminLTE' to your AdminLTE asset path
 
+Box-widget with support collapse buttons and can save collapsed state in cookie
+support solid style
+
+Tile-widget - similar as box, with same options but with background
+
+Smallbox-widget
+Alert-widget
+Callout-widget
+
+Also Timeline Widget - see more info about it in file Timeline.md
+See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
+
+CHANGELOG
+---------
+
+14.02.2015 Added: FlashAlerts Widget - widget for layout for show Yii flash messages in lte style and support multiple message in one style
+07.03.2015 Remove dependency of common\assets\AdminLTE
+
+Independent of any AdminLte AssetBundles
+If you want use cookie collapsing boxes, set correct dependencies in AssetManager
 
 ```php
 'components'=>[
@@ -16,9 +33,16 @@ depends from 'common\assets\AdminLTE' to your AdminLTE asset path
                      'insolita\wgadminlte\ExtAdminlteAsset'=>[
                          'depends'=>[
                              'yii\web\YiiAsset',
-                             'path\to\AdminLteAsset'
+                             'path\to\AdminLteAsset',
+                             'insolita\wgadminlte\JCookieAsset'
                          ]
-                     ]
+                     ],
+                     'insolita\wgadminlte\JCookieAsset'=>[
+                           'depends'=>[
+                               'yii\web\YiiAsset',
+                               'path\to\AdminLteAsset'
+                          ]
+                     ],
 
              ],
 //--------
@@ -27,7 +51,7 @@ depends from 'common\assets\AdminLTE' to your AdminLTE asset path
 
 ```
 
-See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
+
 
 Installation
 ------------
@@ -49,19 +73,7 @@ or add
 to the require section of your `composer.json` file.
 
 
-Box-widget with support collapse buttons and can save collapsed state in cookie
-support solid style
 
-Tile-widget - similar as box, with same options but with background
-
-Smallbox-widget
-Alert-widget
-Callout-widget
-
-Also Timeline Widget - see more info about it in file Timeline.md
-
-14.02.2015 Added: FlashAlerts Widget - widget for layout for show Yii flash messages in lte style and support multiple message in one style
-(So )
 
 Usage
 ------
