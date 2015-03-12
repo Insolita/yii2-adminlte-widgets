@@ -2,6 +2,7 @@
 
 namespace insolita\wgadminlte;
 
+use yii\bootstrap\ButtonGroup;
 use yii\bootstrap\Widget;
 use yii\helpers\Html;
 use yii\web\JsExpression;
@@ -18,39 +19,61 @@ class Box extends Widget
     const TYPE_DANGER = 'danger';
     const TYPE_WARNING = 'warning';
 
-    /**@var string $type color style of widget* */
+    /**
+     * @var string $type color style of widget*
+     */
 
     public $type = self::TYPE_DEFAULT;
 
-    /**@var boolean $solid is solid box header* */
+    /**
+     * @var boolean $solid is solid box header*
+     */
     public $solid = false;
 
 
-    /**@var boolean $withBorder add border after box header (for AdminLte 2.0)**/
+    /**
+     * @var boolean $withBorder add border after box header (for AdminLte 2.0)*
+     */
     public $withBorder = false;
 
-    /**@var string $tooltip box -tooltip* */
+    /**
+     * @var string $tooltip box -tooltip*
+     */
     public $tooltip = '';
 
-    /**@var string $tooltip_placement -top/bottom/left/or right **/
+    /**
+     * @var string $tooltip_placement -top/bottom/left/or right *
+     */
     public $tooltip_placement='bottom';
 
-    /**@var string $title * */
+    /**
+     * @var string $title *
+     */
     public $title = '';
 
-    /**@var string $footer * */
+    /**
+     * @var string $footer *
+     */
     public $footer = '';
 
-    /**@var boolean $collapse show or not Box - collapse button* */
+    /**
+     * @var boolean $collapse show or not Box - collapse button*
+     */
     public $collapse = false;
 
-    /**@var boolean $collapse_remember - set cookies for rememer collapse stage* */
+    /**
+     * @var boolean $collapse_remember - set cookies for rememer collapse stage*
+     */
     public $collapse_remember = true;
 
-    /**@var string $custom_tools code of custom box toolbar**/
+    /**
+     * @var string|array $custom_tools code of custom box toolbar - string html code, or array for yii\bootstrap\ButtonGroup $buttons option*
+     */
     public $custom_tools = '';
 
-    /**@var string $left_tools code of custom box toolbar in left corner**/
+    /**
+     * @var string|array $left_tools code of custom box toolbar in left corner  - string html code, or array for yii\bootstrap\ButtonGroup $buttons option*
+     */
     public $left_tools = '';
 
     public $header_tag='h3';
@@ -68,6 +91,19 @@ class Box extends Widget
         Html::addCssClass($this->options,'box-' . $this->type);
         if($this->solid){
             Html::addCssClass($this->options,'box-solid');
+        }
+
+        if(is_array($this->custom_tools) && !empty($this->custom_tools)){
+            $this->custom_tools=ButtonGroup::widget([
+                    'buttons'=>$this->custom_tools,
+                    'encodeLabels'=>false
+                ]);
+        }
+        if(is_array($this->left_tools) && !empty($this->left_tools)){
+            $this->left_tools=ButtonGroup::widget([
+                    'buttons'=>$this->left_tools,
+                    'encodeLabels'=>false
+                ]);
         }
 
         $custTools=($this->collapse?

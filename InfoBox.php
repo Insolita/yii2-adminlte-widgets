@@ -28,27 +28,41 @@ class InfoBox extends Widget
     const TYPE_BLACK = 'black';
     const TYPE_GRAY = 'gray';
 
-    /**@var string|null $boxBg color style of all widget**/
+    /**
+     * @var string|null $boxBg color style of all widget*
+     */
 
     public $boxBg = null;
 
-    /**@var string|null $iconBg color style of icon-part widget**/
+    /**
+     * @var string|null $iconBg color style of icon-part widget*
+     */
 
     public $iconBg = null;
 
-    /**@var string $number (Number text) * */
+    /**
+     * @var string $number (Number text) *
+     */
     public $number = '';
 
-    /**@var string $text text under head * */
+    /**
+     * @var string $text text under head *
+     */
     public $text = '';
 
-    /**@var string $icon icon class such as "ion ion-bag  or fa fa-beer"* */
+    /**
+     * @var string $icon icon class such as "ion ion-bag  or fa fa-beer"*
+     */
     public $icon = '';
 
-    /**@var integer|null $progress percentage of progressbar width or null, if not needed **/
+    /**
+     * @var integer|null $progress percentage of progressbar width or null, if not needed *
+     */
     public $progress = null;
 
-    /**@var string $progressText text under progressBar or footer text **/
+    /**
+     * @var string $progressText text under progressBar or footer text *
+     */
     public $progressText = '';
 
 
