@@ -80,7 +80,7 @@ class InfoBox extends Widget
         $inner=Html::tag('div',$content,['class'=>'info-box-content']);
 
         echo Html::tag(
-            'div', $inner.$icon, $this->options
+            'div', $icon.$inner, $this->options
         );
     }
 
