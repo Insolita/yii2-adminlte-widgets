@@ -93,12 +93,20 @@ class Box extends Widget
             Html::addCssClass($this->options,'box-solid');
         }
 
-        if(is_array($this->custom_tools) && !empty($this->custom_tools)){
+        if(is_array($this->custom_tools)){
+            if($this->collapse){
+                $this->custom_tools[]='<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>';
+            }
             $this->custom_tools=ButtonGroup::widget([
                     'buttons'=>$this->custom_tools,
                     'encodeLabels'=>false
                 ]);
+        }else{
+            $this->custom_tools=($this->collapse?
+                    '<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>'
+                    :'').$this->custom_tools;
         }
+
         if(is_array($this->left_tools) && !empty($this->left_tools)){
             $this->left_tools=ButtonGroup::widget([
                     'buttons'=>$this->left_tools,
@@ -106,10 +114,7 @@ class Box extends Widget
                 ]);
         }
 
-        $custTools=($this->collapse?
-                '<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>'
-                :'').$this->custom_tools;
-        $custTools=Html::tag('div',$custTools,['class'=>'box-tools pull-right']);
+        $custTools=Html::tag('div',$this->custom_tools,['class'=>'box-tools pull-right']);
 
         $headerContent=(!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>');
         $headerContent.=(!$this->title ? '' : Html::tag($this->header_tag,$this->title,['class'=>'box-title']));
