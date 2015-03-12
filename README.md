@@ -75,6 +75,7 @@ to the require section of your `composer.json` file.
 Usage
 ------
  * Box
+
 ```php
     <?php \insolita\wgadminlte\Box::begin([
              'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
@@ -104,6 +105,7 @@ Usage
    <?php \insolita\wgadminlte\Tile::end()?>
 ```
  * SmallBox
+
  ```php
    <?php echo \insolita\wgadminlte\SmallBox::widget([
 	                    'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
@@ -114,6 +116,7 @@ Usage
 	                    'footer_link'=>'#'
 	                ]);?>
 ```
+
  * InfoBox
 
  ```php
