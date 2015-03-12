@@ -102,9 +102,9 @@ class Box extends Widget
                     'encodeLabels'=>false
                 ]);
         }else{
-            $this->custom_tools=($this->collapse?
+            $this->custom_tools=$this->custom_tools.($this->collapse?
                     '<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>'
-                    :'').$this->custom_tools;
+                    :'');
         }
 
         if(is_array($this->left_tools) && !empty($this->left_tools)){
