@@ -25,6 +25,10 @@ class Box extends Widget
     /**@var boolean $solid is solid box header* */
     public $solid = false;
 
+
+    /**@var boolean $withBorder add border after box header (for AdminLte 2.0)**/
+    public $withBorder = false;
+
     /**@var string $tooltip box -tooltip* */
     public $tooltip = '';
 
@@ -66,28 +70,33 @@ class Box extends Widget
             Html::addCssClass($this->options,'box-solid');
         }
 
+        $custTools=($this->collapse?
+                '<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>'
+                :'').$this->custom_tools;
+        $custTools=Html::tag('div',$custTools,['class'=>'box-tools pull-right']);
+
+        $headerContent=(!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>');
+        $headerContent.=(!$this->title ? '' : Html::tag($this->header_tag,$this->title,['class'=>'box-title']));
+        $headerContent.=($this->custom_tools||$this->collapse)?$custTools:'';
+
+        $headerOptions=['class'=>'box-header'];
+        if($this->withBorder){
+           Html::addCssClass($headerOptions,'with-border');
+        }
+        if($this->tooltip){
+            $headerOptions=array_merge($headerOptions,[
+                    'data-toggle'=>'tooltip',
+                    'data-original-title'=>$this->tooltip,
+                    'data-placement'=>$this->tooltip_placement
+                ]);
+        }
+        $header=Html::tag('div',$headerContent,$headerOptions);
+
+
         echo '<div '.Html::renderTagAttributes($this->options).'>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
-                : '<div class="box-header"'
-                . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '" data-placement="'.$this->tooltip_placement.'"') . '>'
-                . (!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>')
-                . (!$this->title ? '' : Html::tag($this->header_tag,$this->title,['class'=>'box-title']))
-                . (!$this->collapse
-                    ? ''
-                    :
-                    (!$this->custom_tools ?
-                        '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="collapse" id="'
-                        . $this->_cid . '_btn"><i class="fa fa-minus"></i></button></div>' : ''))
-                . (!$this->custom_tools
-                    ? ''
-                    : '<div class="box-tools pull-right">' . $this->custom_tools
-                    . (!$this->collapse
-                        ? ''
-                        : '<button class="btn btn-primary btn-xs" data-widget="collapse" id="' . $this->_cid . '_btn">
-                                   <i class="fa fa-minus"></i></button>')
-                    . '</div>')
-                . '</div>')
+                : $header)
             . '<div class="box-body">';
     }
     public function run()
