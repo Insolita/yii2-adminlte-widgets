@@ -72,7 +72,7 @@ class InfoBox extends Widget
         if($this->boxBg){
             Html::addCssClass($this->options, 'bg-' . $this->boxBg);
         }
-        $icon=Html::tag('span','<i class="' . $this->icon . '"></i>',['class'=>'info-box=icon'.($this->iconBg?' bg-'.$this->iconBg:'')]);
+        $icon=Html::tag('span','<i class="' . $this->icon . '"></i>',['class'=>'info-box-icon'.($this->iconBg?' bg-'.$this->iconBg:'')]);
         $content=($this->text?Html::tag('span',$this->text,['class'=>'info-box-text']):'');
         $content.=($this->number?Html::tag('span',$this->number,['class'=>'info-box-number']):'');
         $content.=(!is_null($this->progress)?Html::tag('div','<div class="progress-bar" style="width: '.$this->progress.'%"></div>>',['class'=>'progress']):'');
