@@ -6,7 +6,8 @@ use yii\helpers\Html;
 use yii\bootstrap\Widget;
 
 /**
- * This is just an example.
+ * SmallBox for AdminLte
+ * @see http://joxi.ru/4AkvMeNFR8gd2q
  */
 class SmallBox extends Widget
 {
