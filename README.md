@@ -42,6 +42,7 @@ If you want use cookie collapsing boxes, set correct dependencies in AssetManage
                      ],
 
              ],
+     ]
 //--------
 
 ]
