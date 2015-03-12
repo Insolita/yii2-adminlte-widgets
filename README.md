@@ -74,7 +74,7 @@ to the require section of your `composer.json` file.
 
 Usage
 ------
-
+ * Box
 ```php
     <?php \insolita\wgadminlte\Box::begin([
              'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
@@ -87,7 +87,10 @@ Usage
          ])?>
         ANY BOX CONTENT HERE
     <?php \insolita\wgadminlte\Box::end()?>
+```
+ * Tile
 
+```php
    <?php \insolita\wgadminlte\Tile::begin([
                'type'=>\insolita\wgadminlte\Tile::TYPE_RED,
                'tooltip'=>'Useful information!',
@@ -99,7 +102,9 @@ Usage
           ANY BOX CONTENT HERE
            ANY BOX CONTENT HERE
    <?php \insolita\wgadminlte\Tile::end()?>
-
+```
+ * SmallBox
+ ```php
    <?php echo \insolita\wgadminlte\SmallBox::widget([
 	                    'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
 	                    'head'=>'90%',
@@ -108,13 +113,22 @@ Usage
 	                    'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
 	                    'footer_link'=>'#'
 	                ]);?>
+```
+ * InfoBox
 
-   <?=\insolita\wgadminlte\Alert::widget([
-              'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
-              'text'=>'Operation Complete',
-              'closable'=>true
-          ]);?>
-
+ ```php
+   <?php echo \insolita\wgadminlte\InfoBox::widget([
+                       'boxBg'=>\insolita\wgadminlte\InfoBox::TYPE_AQUA,
+                       'iconBg'=>\insolita\wgadminlte\InfoBox::TYPE_GREEN,
+                       'number'=>100500,
+                       'text'=>'Test Three',
+                       'icon'=>'fa fa-bolt',
+                       'progress'=>66,
+                       'progressText'=>'Something about this'
+                   ])?>
+```
+ * Callout
+```php
    <?=\insolita\wgadminlte\Callout::widget([
             'type'=>\insolita\wgadminlte\Alert::TYPE_WARNING,
             'head'=>'Operation Complete',
@@ -122,6 +136,15 @@ Usage
         ]);?>
 
 ```
+ * Alert
+```php
+   <?=\insolita\wgadminlte\Alert::widget([
+              'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
+              'text'=>'Operation Complete',
+              'closable'=>true
+          ]);?>
+```
+
 
 Add in layout
 
