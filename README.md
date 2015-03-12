@@ -1,21 +1,18 @@
 Widgets for AdminLte theme
 ===========================
-Widgets for AdminLte theme
 
-Box-widget with support collapse buttons and can save collapsed state in cookie
-support solid style
+ * Box-widget with support collapse buttons and can save collapsed state in cookie support solid style
+ * Tile-widget - similar as box, with same options but with background
+ * Smallbox-widget
+ * Alert-widget
+ * Callout-widget
+ * Infobox-widget
+ * Flash-Alerts
+ * [Timeline Widget] (http://almsaeedstudio.com/themes/AdminLTE/pages/UI/timeline.html) - see more info about it in file [Timeline.md](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/Timeline.md)
 
-Tile-widget - similar as box, with same options but with background
+See http://almsaeedstudio.com/themes/AdminLTE/pages/widgets.html  and http://almsaeedstudio.com/themes/AdminLTE/pages/UI/general.html examples
 
-Smallbox-widget
-Alert-widget
-Callout-widget
-
-Also Timeline Widget - see more info about it in file Timeline.md
-
-See http://www.bootstrapstage.com/demo/admin-lte/pages/widgets.html  and http://www.bootstrapstage.com/demo/admin-lte/pages/UI/general.html examples
-
-
+[CHANGELOG](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/CHANGELOG.md)
 
 Independent of any AdminLte AssetBundles
 If you want use cookie collapsing boxes, set correct dependencies in AssetManager
@@ -69,7 +66,6 @@ or add
 ```
 
 to the require section of your `composer.json` file.
-
 
 
 
