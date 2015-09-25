@@ -92,6 +92,9 @@ class Box extends Widget
         if($this->solid){
             Html::addCssClass($this->options,'box-solid');
         }
+        if($this->collapse and $this->collapseDefault and !$this->collapse_remember){
+            Html::addCssClass($this->options,'collapsed-box');
+        }
 
         if(is_array($this->custom_tools)){
             if($this->collapse){
@@ -151,22 +154,8 @@ class Box extends Widget
     {
         if ($this->collapse_remember && $this->collapse) {
             $view = $this->getView();
-
             JCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
-            $js = new JsExpression(
-                'if($.cookie("' . $this->_cid . '_state")=="hide"){
-                        var box = $("#' . $this->_cid . '");
-                        var bf = box.find(".box-body, .box-footer");
-                        if (!box.hasClass("collapsed-box")) {
-                            box.addClass("collapsed-box");
-                            bf.hide();
-                        }
-                   }
-
-            '
-            );
-            $view->registerJs($js);
         }
 
 

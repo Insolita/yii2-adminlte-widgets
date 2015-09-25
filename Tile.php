@@ -47,6 +47,9 @@ class Tile extends Widget
     /**@var boolean $collapse show or not Box - collapse button* */
     public $collapse = false;
 
+    /**@var boolean if true - tile will be collapsed by default **/
+    public $collapseDefault = false;
+
     /**@var boolean $collapse_remember - set cookies for rememer collapse stage* */
     public $collapse_remember = true;
 
@@ -65,11 +68,13 @@ class Tile extends Widget
             $this->_cid =$this->options['id'] = 'tilec_'.$this->getId();
         }
 
-
+        $collapseTag = 'collapse';
         Html::addCssClass($this->options,'box');
         Html::addCssClass($this->options,'box-solid');
         Html::addCssClass($this->options,'bg-' . $this->type);
-
+        if($this->collapse and $this->collapseDefault and !$this->collapse_remember){
+            Html::addCssClass($this->options,'collapsed-box');
+        }
         $this->registerJs();
         echo '<div '.Html::renderTagAttributes($this->options).'>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
@@ -82,14 +87,14 @@ class Tile extends Widget
                     ? ''
                     :
                     (!$this->custom_tools ?
-                        '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="collapse" id="'
+                        '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="'.$collapseTag.'" id="'
                         . $this->_cid . '_btn"><i class="fa fa-minus"></i></button></div>' : ''))
                 . (!$this->custom_tools
                     ? ''
                     : '<div class="box-tools pull-right">' . $this->custom_tools
                     . (!$this->collapse
                         ? ''
-                        : '<button class="btn btn-primary btn-xs" data-widget="collapse" id="' . $this->_cid . '_btn">
+                        : '<button class="btn btn-primary btn-xs" data-widget="'.$collapseTag.'" id="' . $this->_cid . '_btn">
                                    <i class="fa fa-minus"></i></button>')
                     . '</div>')
                 . '</div>')
@@ -109,21 +114,7 @@ class Tile extends Widget
             $view = $this->getView();
             JCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
-            $js = new JsExpression(
-                'if($.cookie("' . $this->_cid . '_state")=="hide"){
-                        var box = $("#' . $this->_cid . '");
-                        var bf = box.find(".box-body, .box-footer");
-                        if (!box.hasClass("collapsed-box")) {
-                            box.addClass("collapsed-box");
-                            bf.hide();
-                        }
-                   }
-
-            '
-            );
-            $view->registerJs($js);
         }
-
 
     }
 }
