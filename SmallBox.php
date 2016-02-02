@@ -7,6 +7,7 @@ use yii\bootstrap\Widget;
 
 /**
  * SmallBox for AdminLte
+ *
  * @see http://joxi.ru/4AkvMeNFR8gd2q
  */
 class SmallBox extends Widget
@@ -41,20 +42,21 @@ class SmallBox extends Widget
     /**@var string $icon icon class such as "ion ion-bag  or fa fa-beer"* */
     public $icon = '';
 
-    /**@var string $footer text in footer**/
+    /**@var string $footer text in footer* */
     public $footer = '';
 
-    /**@var string $footer_link link for footer**/
-    public $footer_link='#';
+    /**@var string $footer_link link for footer* */
+    public $footer_link = '#';
 
     public function run()
     {
         Html::addCssClass($this->options, 'small-box');
         Html::addCssClass($this->options, 'bg-' . $this->type);
-        $inner=Html::tag('div','<h3>' . $this->head . '</h3>' . '<p>' . $this->text . '</p>',['class'=>'inner']);
-        $icon=Html::tag('div','<i class="' . $this->icon . '"></i>',['class'=>'icon']);
+        $inner = Html::tag('div', '<h3>' . $this->head . '</h3>' . '<p>' . $this->text . '</p>', ['class' => 'inner']);
+        $icon = Html::tag('div', '<i class="' . $this->icon . '"></i>', ['class' => 'icon']);
         echo Html::tag(
-            'div', $inner.$icon.Html::a($this->footer, $this->footer_link,['class'=>'small-box-footer']), $this->options
+            'div', $inner . $icon . Html::a($this->footer, $this->footer_link, ['class' => 'small-box-footer']),
+            $this->options
         );
     }
 

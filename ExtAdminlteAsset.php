@@ -9,7 +9,9 @@
 namespace insolita\wgadminlte;
 
 use \yii\web\AssetBundle;
-class ExtAdminlteAsset  extends AssetBundle{
+
+class ExtAdminlteAsset extends AssetBundle
+{
     public $sourcePath = '@vendor/insolita/yii2-adminlte-widgets/js';
 
     public $js
@@ -17,9 +19,10 @@ class ExtAdminlteAsset  extends AssetBundle{
             'admlteext.js',
         ];
 
-    public $depends=[
-        'yii\web\YiiAsset',
-        'insolita\wgadminlte\JCookieAsset'
-    ];
+    public $depends
+        = [
+            'yii\web\YiiAsset',
+            'insolita\wgadminlte\JCookieAsset'
+        ];
 }
 

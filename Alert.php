@@ -33,25 +33,25 @@ class Alert extends Widget
         parent::init();
         if (!$this->icon) {
             switch ($this->type) {
-                case self::TYPE_INFO: {
-                    $this->icon = 'fa fa-info';
-                    break;
-                }
-                case self::TYPE_DANGER: {
-                    $this->icon = 'fa fa-ban';
-                    break;
-                }
-                case self::TYPE_WARNING: {
-                    $this->icon = 'fa fa-warning';
-                    break;
-                }
-                case self::TYPE_SUCCESS: {
-                    $this->icon = 'fa fa-check';
-                    break;
-                }
-                default: {
+            case self::TYPE_INFO: {
+                $this->icon = 'fa fa-info';
+                break;
+            }
+            case self::TYPE_DANGER: {
+                $this->icon = 'fa fa-ban';
+                break;
+            }
+            case self::TYPE_WARNING: {
+                $this->icon = 'fa fa-warning';
+                break;
+            }
+            case self::TYPE_SUCCESS: {
+                $this->icon = 'fa fa-check';
+                break;
+            }
+            default: {
                 $this->icon = 'fa fa-question';
-                }
+            }
             }
         }
     }
@@ -60,10 +60,11 @@ class Alert extends Widget
     {
         Html::addCssClass($this->options, 'alert');
         Html::addCssClass($this->options, 'alert-' . $this->type);
-        if($this->closable){
+        if ($this->closable) {
             Html::addCssClass($this->options, 'alert-dismissable');
         }
-        echo Html::tag('div',
+        echo Html::tag(
+            'div',
             '<i class="' . $this->icon . '"></i>'
             . (!$this->closable ? ''
                 : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')

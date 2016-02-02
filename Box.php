@@ -44,7 +44,7 @@ class Box extends Widget
     /**
      * @var string $tooltip_placement -top/bottom/left/or right *
      */
-    public $tooltip_placement='bottom';
+    public $tooltip_placement = 'bottom';
 
     /**
      * @var string $title *
@@ -76,7 +76,7 @@ class Box extends Widget
      */
     public $left_tools = '';
 
-    public $header_tag='h3';
+    public $header_tag = 'h3';
 
 
     private $_cid = null;
@@ -84,65 +84,74 @@ class Box extends Widget
     public function init()
     {
         if (!isset($this->options['id'])) {
-            $this->_cid =$this->options['id'] = 'bc_'.$this->getId();
+            $this->_cid = $this->options['id'] = 'bc_' . $this->getId();
         }
         $this->registerJs();
-        Html::addCssClass($this->options,'box');
-        Html::addCssClass($this->options,'box-' . $this->type);
-        if($this->solid){
-            Html::addCssClass($this->options,'box-solid');
+        Html::addCssClass($this->options, 'box');
+        Html::addCssClass($this->options, 'box-' . $this->type);
+        if ($this->solid) {
+            Html::addCssClass($this->options, 'box-solid');
         }
-        if($this->collapse and $this->collapseDefault and !$this->collapse_remember){
-            Html::addCssClass($this->options,'collapsed-box');
+        if ($this->collapse and $this->collapseDefault and !$this->collapse_remember) {
+            Html::addCssClass($this->options, 'collapsed-box');
         }
 
-        if(is_array($this->custom_tools)){
-            if($this->collapse){
-                $this->custom_tools[]='<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>';
+        if (is_array($this->custom_tools)) {
+            if ($this->collapse) {
+                $this->custom_tools[] = '<button class="btn btn-' . $this->type . ' btn-xs" data-widget="collapse" id="'
+                    . $this->_cid . '_btn"><i class="fa fa-minus"></i></button>';
             }
-            $this->custom_tools=ButtonGroup::widget([
-                    'buttons'=>$this->custom_tools,
-                    'encodeLabels'=>false
-                ]);
-        }else{
-            $this->custom_tools=$this->custom_tools.($this->collapse?
-                    '<button class="btn btn-'.$this->type.' btn-xs" data-widget="collapse" id="'. $this->_cid . '_btn"><i class="fa fa-minus"></i></button>'
-                    :'');
+            $this->custom_tools = ButtonGroup::widget(
+                [
+                    'buttons' => $this->custom_tools,
+                    'encodeLabels' => false
+                ]
+            );
+        } else {
+            $this->custom_tools = $this->custom_tools . ($this->collapse ?
+                    '<button class="btn btn-' . $this->type . ' btn-xs" data-widget="collapse" id="' . $this->_cid
+                    . '_btn"><i class="fa fa-minus"></i></button>'
+                    : '');
         }
 
-        if(is_array($this->left_tools) && !empty($this->left_tools)){
-            $this->left_tools=ButtonGroup::widget([
-                    'buttons'=>$this->left_tools,
-                    'encodeLabels'=>false
-                ]);
+        if (is_array($this->left_tools) && !empty($this->left_tools)) {
+            $this->left_tools = ButtonGroup::widget(
+                [
+                    'buttons' => $this->left_tools,
+                    'encodeLabels' => false
+                ]
+            );
         }
 
-        $custTools=Html::tag('div',$this->custom_tools,['class'=>'box-tools pull-right']);
+        $custTools = Html::tag('div', $this->custom_tools, ['class' => 'box-tools pull-right']);
 
-        $headerContent=(!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>');
-        $headerContent.=(!$this->title ? '' : Html::tag($this->header_tag,$this->title,['class'=>'box-title']));
-        $headerContent.=($this->custom_tools||$this->collapse)?$custTools:'';
+        $headerContent = (!$this->left_tools ? '' : '<div class="box-tools pull-left">' . $this->left_tools . '</div>');
+        $headerContent .= (!$this->title ? '' : Html::tag($this->header_tag, $this->title, ['class' => 'box-title']));
+        $headerContent .= ($this->custom_tools || $this->collapse) ? $custTools : '';
 
-        $headerOptions=['class'=>'box-header'];
-        if($this->withBorder){
-           Html::addCssClass($headerOptions,'with-border');
+        $headerOptions = ['class' => 'box-header'];
+        if ($this->withBorder) {
+            Html::addCssClass($headerOptions, 'with-border');
         }
-        if($this->tooltip){
-            $headerOptions=array_merge($headerOptions,[
-                    'data-toggle'=>'tooltip',
-                    'data-original-title'=>$this->tooltip,
-                    'data-placement'=>$this->tooltip_placement
-                ]);
+        if ($this->tooltip) {
+            $headerOptions = array_merge(
+                $headerOptions, [
+                'data-toggle' => 'tooltip',
+                'data-original-title' => $this->tooltip,
+                'data-placement' => $this->tooltip_placement
+            ]
+            );
         }
-        $header=Html::tag('div',$headerContent,$headerOptions);
+        $header = Html::tag('div', $headerContent, $headerOptions);
 
 
-        echo '<div '.Html::renderTagAttributes($this->options).'>'
+        echo '<div ' . Html::renderTagAttributes($this->options) . '>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : $header)
             . '<div class="box-body">';
     }
+
     public function run()
     {
         echo '</div>'
