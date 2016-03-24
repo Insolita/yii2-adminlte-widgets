@@ -67,6 +67,11 @@ class Box extends Widget
     public $collapse_remember = true;
 
     /**
+     * @var boolean $collapseDefault - show in collapsed mode inititally
+     */
+    public $collapseDefault = true;
+
+    /**
      * @var string|array $custom_tools code of custom box toolbar - string html code, or array for yii\bootstrap\ButtonGroup $buttons option*
      */
     public $custom_tools = '';
