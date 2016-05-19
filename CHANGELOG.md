@@ -10,3 +10,5 @@ CHANGELOG
            add ability to set left and right toolbar elements for box widget not only as string html code but also as array for yii\bootstrap\ButtonGroup $buttons
 25.09.2015 v1.1.2 Fix collapse remember functional for Box and Tiles,
                   add new options for Box and Tile "collapseDefault" - if true, box will be collapsed by default
+                  
+19.05.2016 v 1.1.5 change composer jquery-cookie version, fix JCookieAsset path ![10x schmunk42](https://github.com/Insolita/yii2-adminlte-widgets/commit/6f99a85c83616621e23fd8ad60d95b2d43cd9f30)
