@@ -12,3 +12,5 @@ CHANGELOG
                   add new options for Box and Tile "collapseDefault" - if true, box will be collapsed by default
                   
 19.05.2016 v 1.1.5 change composer jquery-cookie version, fix JCookieAsset path ![10x schmunk42](https://github.com/Insolita/yii2-adminlte-widgets/commit/6f99a85c83616621e23fd8ad60d95b2d43cd9f30)
+
+03.06.2016  v 1.1.6 Fix FlashAlerts; support flashes added as array via Yii::$app->session->addFlash
