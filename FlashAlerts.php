@@ -84,18 +84,28 @@ class FlashAlerts extends Widget
             if ($this->closable) {
                 Html::addCssClass($this->options, 'alert-dismissable');
             }
-            $mess = !$this->encode ? $mess : Html::encode($mess);
-            $msg .= Html::tag(
-                'div',
-                $this->_icons[$fk]
-                . (!$this->closable ? ''
-                    : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')
-                . ($this->_titles[$fk] ? Html::tag('b', $this->_titles[$fk]) : '') . ' '
-                . (!$this->bold ? $mess : Html::tag('b', $mess))
-                , $this->options
-            );
+            if(is_array($mess)){
+                foreach ($mess as $submess){
+                    $msg.=$this->buildMessage($submess);
+                }
+            }else{
+                $msg.=$this->buildMessage($mess);
+            } 
         }
         return $msg;
+    }
+
+    protected function buildMessage($text){
+        $text = !$this->encode ? $text : Html::encode($text);
+        return Html::tag(
+            'div',
+            $this->_icons[$fk]
+            . (!$this->closable ? ''
+                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')
+            . ($this->_titles[$fk] ? Html::tag('b', $this->_titles[$fk]) : '') . ' '
+            . (!$this->bold ? $mess : Html::tag('b', $mess))
+            , $this->options
+        );
     }
 
 }
