@@ -7,8 +7,8 @@ $(function() {
 		//$("[data-widget='collapse']").off("click");
 		$("[data-widget='collapse']").each(function() {
 			var box = $(this).parents(".box").first();
-			//console.log('found '+box.attr('id') + 'cookstate = ' + $.cookie(box.attr('id')+'_state') );
-				if($.cookie(box.attr('id')+'_state') == "hide"){
+			//console.log('found '+box.attr('id') + 'cookstate = ' + Cookies.get(box.attr('id')+'_state') );
+				if(Cookies.get(box.attr('id')+'_state') == "hide"){
 					if (!box.hasClass("collapsed-box")) {
                          box.addClass("collapsed-box");
 						 box.slideDown();
@@ -17,11 +17,11 @@ $(function() {
 		});
 		$("[data-widget='collapse']").on('click',function() {
 			var box = $(this).parents(".box").first();
-			//console.log('clicked '+box.attr('id') + 'cookstate = ' + $.cookie(box.attr('id')+'_state') );
+			//console.log('clicked '+box.attr('id') + 'cookstate = ' + Cookies.get(box.attr('id')+'_state') );
 			if (!box.hasClass("collapsed-box")) {
-				$.cookie(box.attr('id')+'_state',"hide");
+                Cookies.set(box.attr('id')+'_state',"hide");
 			} else {
-				$.cookie(box.attr('id')+'_state',"show");
+                Cookies.set(box.attr('id')+'_state',"show");
 			}
 		});
 });
