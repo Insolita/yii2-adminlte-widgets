@@ -85,6 +85,7 @@ class Box extends Widget
 
 
     private $_cid = null;
+    private $_icon = null;
 
     public function init()
     {
@@ -101,10 +102,12 @@ class Box extends Widget
             Html::addCssClass($this->options, 'collapsed-box');
         }
 
+        $this->_icon = $this->collapseDefault ? 'plus' : 'minus';
+
         if (is_array($this->custom_tools)) {
             if ($this->collapse) {
                 $this->custom_tools[] = '<button class="btn btn-' . $this->type . ' btn-xs" data-widget="collapse" id="'
-                    . $this->_cid . '_btn"><i class="fa fa-minus"></i></button>';
+                    . $this->_cid . '_btn"><i class="fa fa-' . $this->_icon . '"></i></button>';
             }
             $this->custom_tools = ButtonGroup::widget(
                 [
@@ -115,7 +118,7 @@ class Box extends Widget
         } else {
             $this->custom_tools = $this->custom_tools . ($this->collapse ?
                     '<button class="btn btn-' . $this->type . ' btn-xs" data-widget="collapse" id="' . $this->_cid
-                    . '_btn"><i class="fa fa-minus"></i></button>'
+                    . '_btn"><i class="fa fa-' . $this->_icon . '"></i></button>'
                     : '');
         }
 
