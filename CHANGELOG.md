@@ -1,6 +1,8 @@
 CHANGELOG
 ---------
 
+08.02.2017 Replaced: abandoned jquery-cookie library has been replaced with js-cookie (official replacement)
+
 14.02.2015 Added: FlashAlerts Widget - widget for layout for show Yii flash messages in lte style and support multiple message in one style
 
 07.03.2015 v1.1.0 Remove dependency of common\assets\AdminLTE (previous variant branched to stkit)

@@ -28,10 +28,10 @@ If you want use cookie collapsing boxes, set correct dependencies in AssetManage
                          'depends'=>[
                              'yii\web\YiiAsset',
                              'path\to\AdminLteAsset',
-                             'insolita\wgadminlte\JCookieAsset'
+                             'insolita\wgadminlte\JsCookieAsset'
                          ]
                      ],
-                     'insolita\wgadminlte\JCookieAsset'=>[
+                     'insolita\wgadminlte\JsCookieAsset'=>[
                            'depends'=>[
                                'yii\web\YiiAsset',
                                'path\to\AdminLteAsset'

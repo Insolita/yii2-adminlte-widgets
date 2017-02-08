@@ -168,7 +168,7 @@ class Box extends Widget
     {
         if ($this->collapse_remember && $this->collapse) {
             $view = $this->getView();
-            JCookieAsset::register($view);
+            JsCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
         }
 
