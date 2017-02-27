@@ -15,7 +15,7 @@ class JsCookieAsset  extends AssetBundle{
 
     public $js
         = [
-            'js.cookie.js',
+            'src/js.cookie.js',
         ];
 
     public $depends=[
