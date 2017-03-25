@@ -139,8 +139,7 @@ class FlashAlerts extends Widget
             'div',
             ArrayHelper::getValue($this->icons, $flashStyle,'')
             . (!$this->closable ? ''
-                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">
-<i class="fa fa-times"></i></button>')
+                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>')
             . (isset($this->titles[$flashStyle]) ? Html::tag('b', $this->titles[$flashStyle]) : '') . ' '
             . (!$this->bold ? $text : Html::tag('b', $text))
             ,
