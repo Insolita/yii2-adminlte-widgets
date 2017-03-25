@@ -66,7 +66,7 @@ HTML;
      */
     public function run()
     {
-        parent::run();
+        return parent::run();
     }
     
     protected function registerJs()

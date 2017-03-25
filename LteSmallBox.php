@@ -51,6 +51,9 @@ class LteSmallBox extends Widget
      */
     public $link = '#';
     
+    /**
+     * @var string
+     */
     public $template
         = <<<HTML
 <div {options}>
@@ -67,12 +70,15 @@ class LteSmallBox extends Widget
           </div>
 HTML;
     
+    /**
+     * @return string
+     */
     public function run()
     {
         Html::addCssClass($this->options, 'small-box');
         Html::addCssClass($this->options, 'bg-' . $this->type);
         
-        echo strtr(
+        return strtr(
             $this->template,
             [
                 '{options}'=>Html::renderTagAttributes($this->options),

@@ -17,7 +17,7 @@ class LteInfoBox extends Widget
     /**
      * @var string
      */
-    public $icon = '<i class="fa fa-bullhorn"></i>';
+    public $icon = 'fa fa-bullhorn';
     
     /**
      * @var string
@@ -105,7 +105,7 @@ HTML;
         return strtr(
             $this->template,
             [
-                '{icon}'     => $this->icon,
+                '{icon}'     => '<i class="'.$this->icon.'"></i>',
                 '{text}'     => $this->text,
                 '{bgColor}'  => $this->bgColor?'bg-'.$this->bgColor:'',
                 '{bgIconColor}'  => $this->bgIconColor?'bg-'.$this->bgIconColor:'',

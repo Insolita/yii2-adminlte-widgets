@@ -84,7 +84,7 @@ HTML;
             Html::addCssClass($this->options, 'alert-dismissable');
         }
         $template = $this->title?$this->templateWithTitle:$this->template;
-        echo strtr($template,[
+        return strtr($template,[
             '{options}'=>Html::renderTagAttributes($this->options),
             '{close}'=>$this->closable
                 ?'<button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>':'',

@@ -133,7 +133,7 @@ HTML;
     public function run()
     {
         if($this->footer){
-            echo strtr(
+            return strtr(
                 $this->bottomTemplate,
                 [
                     '{footer}' => $this->footer,
@@ -141,7 +141,7 @@ HTML;
                 ]
             );
         }else{
-            echo '</div></div>';
+            return '</div></div>';
         }
         
     }

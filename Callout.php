@@ -88,7 +88,7 @@ HTML;
      */
     public function run()
     {
-        echo $this->endTemplate;
+        return $this->endTemplate;
     }
 
 }
