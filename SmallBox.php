@@ -7,7 +7,7 @@ use yii\bootstrap\Widget;
 
 /**
  * SmallBox for AdminLte
- *
+ * @deprecated use LteBoxInfo instead
  * @see http://joxi.ru/4AkvMeNFR8gd2q
  */
 class SmallBox extends Widget
