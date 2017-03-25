@@ -7,7 +7,7 @@ use yii\bootstrap\Widget;
 
 /**
  * InfoBox for AdminLte
- *
+ * @deprecated use LteBoxInfo instead
  * @see http://joxi.ru/LmG8bDkSnNEJ2l
  */
 class InfoBox extends Widget

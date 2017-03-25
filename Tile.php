@@ -7,6 +7,7 @@ use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
 /**
+ * @deprecated use LteBox or CollapseBox instead
  * This is just an example.
  */
 class Tile extends Widget
@@ -112,7 +113,7 @@ class Tile extends Widget
     {
         if ($this->collapse_remember && $this->collapse) {
             $view = $this->getView();
-            JCookieAsset::register($view);
+            JsCookieAsset::register($view);
             ExtAdminlteAsset::register($view);
         }
 

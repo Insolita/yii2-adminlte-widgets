@@ -8,14 +8,14 @@
 
 namespace insolita\wgadminlte;
 
-use \yii\web\AssetBundle;
+use yii\web\AssetBundle;
 
 /**
- * Class ExtAdminlteAsset
- * @deprecated
+ * Class CollapseBoxAsset
+ *
  * @package insolita\wgadminlte
  */
-class ExtAdminlteAsset extends AssetBundle
+class CollapseBoxAsset extends AssetBundle
 {
     /**
      * @var string
@@ -27,7 +27,7 @@ class ExtAdminlteAsset extends AssetBundle
      */
     public $js
         = [
-            'admlteext.js',
+            'collapsebox.js',
         ];
     
     /**
@@ -36,7 +36,7 @@ class ExtAdminlteAsset extends AssetBundle
     public $depends
         = [
             'yii\web\YiiAsset',
-            'insolita\wgadminlte\JsCookieAsset'
+            'insolita\wgadminlte\JsCookieAsset',
         ];
 }
 
