@@ -1,7 +1,7 @@
 Widgets for AdminLte theme
 ===========================
 
-#### Warning! 3.0 version can break compatibilities. For existed projects - recommend stay on 2x branch
+#### Warning! 2.0 version can break compatibilities. For existed projects - recommend stay on 1x branch
 See ChangeLog for more information
 
  * Box-widget with support collapse buttons and can save collapsed state in cookie support solid style
@@ -12,8 +12,8 @@ See ChangeLog for more information
  * Infobox-widget
  * Flash-Alerts
  * [Timeline Widget] (http://almsaeedstudio.com/themes/AdminLTE/pages/UI/timeline.html) - see more info about it in file [Timeline.md](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/Timeline.md)
- * ChatBox since 3.0
- * LteSetup since 3.0
+ * ChatBox since 2.0
+ * LteSetup since 2.0
 
 See http://almsaeedstudio.com/themes/AdminLTE/pages/widgets.html  and http://almsaeedstudio.com/themes/AdminLTE/pages/UI/general.html examples
 
@@ -61,13 +61,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~3.0"
+php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~2.0"
 ```
 
 or add
 
 ```
-"insolita/yii2-adminlte-widgets": "~3.0"
+"insolita/yii2-adminlte-widgets": "~2.0"
 ```
 
 to the require section of your `composer.json` file.
@@ -212,7 +212,7 @@ Yii::$app->session->setFlash('success-first','Message');
 Yii::$app->session->setFlash('success-second','Message');
 ```
 
-Since 3.0
+Since 2.0
 
 * ChatBox
 ```php

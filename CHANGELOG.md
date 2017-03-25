@@ -1,7 +1,7 @@
 CHANGELOG
 ---------
 
-26.03.2017 v3.0
+26.03.2017 v2.0
  Replaced: abandoned jquery-cookie library has been replaced with js-cookie (official replacement)
  - refactor Alert; Callout; FlashAlerts; 
  - Add LteConst - class with all constants; Constants in classes mark as deprecated
