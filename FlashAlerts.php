@@ -3,6 +3,7 @@
 namespace insolita\wgadminlte;
 
 use yii\bootstrap\Widget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
@@ -19,9 +20,21 @@ use yii\helpers\Html;
  */
 class FlashAlerts extends Widget
 {
+    /**
+     * @deprecated use LteConst instead
+     */
     const TYPE_DANGER = 'danger';
+    /**
+     * @deprecated use LteConst instead
+     */
     const TYPE_INFO = 'info';
+    /**
+     * @deprecated use LteConst instead
+     */
     const TYPE_SUCCESS = 'success';
+    /**
+     * @deprecated use LteConst instead
+     */
     const TYPE_WARNING = 'warning';
     
     /**@var boolean - Show close button for alert* */
@@ -49,25 +62,31 @@ class FlashAlerts extends Widget
     
     public $infoTitle = 'К сведению!';
     
-    private $_classes;
+    private $classes;
     
-    private $_keyparts;
+    private $styleParts;
     
-    private $_icons;
+    private $icons;
     
-    private $_titles;
+    /**
+     * @var
+     */
+    private $titles;
     
+    /**
+     *
+     */
     public function init()
     {
-        $this->_classes = ['success' => 'success', 'error' => 'danger', 'info' => 'info', 'warning' => 'warning'];
-        $this->_keyparts = array_keys($this->_classes);
-        $this->_icons = [
+        $this->classes = ['success' => 'success', 'error' => 'danger', 'info' => 'info', 'warning' => 'warning'];
+        $this->styleParts = array_keys($this->classes);
+        $this->icons = [
             'success' => $this->successIcon,
             'error'   => $this->errorIcon,
             'info'    => $this->infoIcon,
             'warning' => $this->warningIcon,
         ];
-        $this->_titles = [
+        $this->titles = [
             'success' => $this->successTitle,
             'error'   => $this->errorTitle,
             'info'    => $this->infoTitle,
@@ -75,44 +94,54 @@ class FlashAlerts extends Widget
         ];
     }
     
+    /**
+     * @return string
+     */
     public function run()
     {
         $allflash = \Yii::$app->session->getAllFlashes();
-        $msg = '';
-        foreach ($allflash as $key => $mess) {
-            $fk = 'info';
-            foreach ($this->_keyparts as $kp) {
+        $messages = '';
+        foreach ($allflash as $key => $message) {
+            $flashStyle = 'info';
+            foreach ($this->styleParts as $kp) {
                 if (strpos($key, $kp) !== false) {
-                    $fk = $kp;
+                    $flashStyle = $kp;
                     break;
                 }
             }
             
             Html::addCssClass($this->options, 'alert');
-            Html::addCssClass($this->options, 'alert-' . $this->_classes[$fk]);
+            Html::addCssClass($this->options, 'alert-' . ArrayHelper::getValue($this->classes, $flashStyle,'info'));
             if ($this->closable) {
                 Html::addCssClass($this->options, 'alert-dismissable');
             }
-            if (is_array($mess)) {
-                foreach ($mess as $submess) {
-                    $msg .= $this->buildMessage($fk, $submess);
+            if (is_array($message)) {
+                foreach ($message as $submess) {
+                    $messages .= $this->buildMessage($flashStyle, $submess);
                 }
-            } elseif ($mess) {
-                $msg .= $this->buildMessage($fk, $mess);
+            } elseif ($message) {
+                $messages .= $this->buildMessage($flashStyle, $message);
             }
         }
-        return $msg;
+        return $messages;
     }
     
-    protected function buildMessage($fk, $text)
+    /**
+     * @param $flashStyle
+     * @param $text
+     *
+     * @return string
+     */
+    protected function buildMessage($flashStyle, $text)
     {
         $text = !$this->encode ? $text : Html::encode($text);
         return Html::tag(
             'div',
-            $this->_icons[$fk]
+            ArrayHelper::getValue($this->icons, $flashStyle,'')
             . (!$this->closable ? ''
-                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')
-            . ($this->_titles[$fk] ? Html::tag('b', $this->_titles[$fk]) : '') . ' '
+                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">
+<i class="fa fa-times"></i></button>')
+            . (isset($this->titles[$flashStyle]) ? Html::tag('b', $this->titles[$flashStyle]) : '') . ' '
             . (!$this->bold ? $text : Html::tag('b', $text))
             ,
             $this->options
