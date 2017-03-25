@@ -12,7 +12,7 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-	    "bower-asset/js-cookie":"~2.1.3"
+	    "bower-asset/js-cookie":"~2.1.0"
     },
     "autoload": {
         "psr-4": {
