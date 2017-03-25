@@ -12,6 +12,8 @@ See ChangeLog for more information
  * Infobox-widget
  * Flash-Alerts
  * [Timeline Widget] (http://almsaeedstudio.com/themes/AdminLTE/pages/UI/timeline.html) - see more info about it in file [Timeline.md](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/Timeline.md)
+ * ChatBox since 3.0
+ * LteSetup since 3.0
 
 See http://almsaeedstudio.com/themes/AdminLTE/pages/widgets.html  and http://almsaeedstudio.com/themes/AdminLTE/pages/UI/general.html examples
 
@@ -202,6 +204,34 @@ Yii::$app->session->setFlash('success-second','Message');
 ```
 
 Since 3.0
+
+* ChatBox
+```php
+<?php 
+   \insolita\wgadminlte\LteChatBox::begin([
+       'type' => \insolita\wgadminlte\LteConst::TYPE_PRIMARY,
+       'footer'=>'<input type="text" name="newMessage">',
+       'title'=>'Messages',
+       'boxTools' => '<button class="btn btn-xs"><i class="fa fa-refresh"></i></button>'
+       ]);
+      echo \insolita\wgadminlte\LteChatMessage::widget([
+          'isRight' => false,
+          'author' => 'Artur Green',
+          'message' => 'Some message bla-bla',
+          'image'=>'https://almsaeedstudio.com/themes/AdminLTE/dist/img/user3-128x128.jpg',
+          'createdAt' => '5 minutes ago'
+]);
+      echo  \insolita\wgadminlte\LteChatMessage::widget([
+                'isRight' => true,
+                'author' => 'Jane Smith',
+                'message' => 'Some message bla-bla',
+                'image'=>'https://almsaeedstudio.com/themes/AdminLTE/dist/img/user1-128x128.jpg',
+                'createdAt' => '2017-23-03 17:33'
+      ]);
+   \insolita\wgadminlte\LteChatBox::end();
+?>
+```
+
 Widget for configure lte settings
 
 Add in layout
