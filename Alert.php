@@ -7,7 +7,14 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
- * This is just an example.
+ * Class Alert
+ *
+ * @example
+ * <?php echo Alert::widget(['type'=>'info','message'=>'some text'])?>
+ * <?php Alert::begin(['type'=>'info','closable'=>true])?>
+ *    Alert message
+ * <?php Alert::end()?>
+ * @package insolita\wgadminlte
  */
 class Alert extends Widget
 {
@@ -35,29 +42,42 @@ class Alert extends Widget
     /**@var boolean $closable show or not close button* */
     public $closable = true;
     
-    /**@var string $text your message* */
+    /**
+     * @var string $text your message*
+     */
     public $text = '';
     
+    /**
+     * @var
+     */
     public $title;
     
     /**@var string $icon icon class such as "ion ion-bag  or fa fa-beer"* */
     public $icon;
     
-    public $templateWithTitle = <<<HTML
-    <div {options}>{close}<h4><i class="{icon}"></i> {title}</h4>{message}</div>
+    /**
+     * @var string
+     */
+    public $templateWithTitle
+        = <<<HTML
+    <div {options}>{close}<h4><i class="{icon}"></i> {title}</h4>{message}
 HTML;
     
-    public $template = <<<HTML
-    <div {options}>{close}<i class="{icon}"></i> {message}</div>
+    /**
+     * @var string
+     */
+    public $template
+        = <<<HTML
+    <div {options}>{close}<i class="{icon}"></i> {message}
 HTML;
-
+    
     /**
      * @var array
      */
     public $iconMap
         = [
             LteConst::TYPE_DANGER  => 'fa fa-lg fa-ban',
-            LteConst::TYPE_INFO    => 'fa fa-lg fa-info-circle',
+            LteConst::TYPE_INFO    => 'fa fa-lg fa-info',
             LteConst::TYPE_WARNING => 'fa fa-lg fa-warning',
             LteConst::TYPE_SUCCESS => 'fa fa-lg fa-check',
         ];
@@ -71,6 +91,23 @@ HTML;
         if (!$this->icon) {
             $this->icon = ArrayHelper::getValue($this->iconMap, $this->type, 'fa fa-question');
         }
+        Html::addCssClass($this->options, 'alert');
+        Html::addCssClass($this->options, 'alert-' . $this->type);
+        if ($this->closable) {
+            Html::addCssClass($this->options, 'alert-dismissable');
+        }
+        $template = $this->title ? $this->templateWithTitle : $this->template;
+        echo strtr(
+            $template,
+            [
+                '{options}' => Html::renderTagAttributes($this->options),
+                '{close}'   => $this->closable
+                    ? '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>' : '',
+                '{title}'   => $this->title,
+                '{icon}'    => $this->icon,
+                '{message}' => $this->text,
+            ]
+        );
     }
     
     /**
@@ -78,20 +115,7 @@ HTML;
      */
     public function run()
     {
-        Html::addCssClass($this->options, 'alert');
-        Html::addCssClass($this->options, 'alert-' . $this->type);
-        if ($this->closable) {
-            Html::addCssClass($this->options, 'alert-dismissable');
-        }
-        $template = $this->title?$this->templateWithTitle:$this->template;
-        return strtr($template,[
-            '{options}'=>Html::renderTagAttributes($this->options),
-            '{close}'=>$this->closable
-                ?'<button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>':'',
-            '{title}'=>$this->title,
-            '{icon}'=>$this->icon,
-            '{message}'=>$this->text,
-        ]);
+        return '</div>';
     }
     
 }

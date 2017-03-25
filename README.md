@@ -82,10 +82,10 @@ Usage
     <?php \insolita\wgadminlte\LteBox::begin([
              'type'=>\insolita\wgadminlte\LteConst::TYPE_INFO,
              'isSolid'=>true,
-             'boxTools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Добавить</button>',
-             'tooltip'=>'Описание содаржимого',
-             'title'=>'Управление пользователями',
-             'footer'=>'Всего '.User::counter().' активных пользователей',
+             'boxTools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Add</button>',
+             'tooltip'=>'this tooltip description',
+             'title'=>'Manage users',
+             'footer'=>'total 44 active users',
          ])?>
         ANY BOX CONTENT HERE
     <?php \insolita\wgadminlte\LteBox::end()?>
@@ -138,7 +138,7 @@ Usage
 	                    'text'=>'Free Space',
 	                    'icon'=>'fa fa-cloud-download',
 	                    'footer'=>'See All <i class="fa fa-hand-o-right"></i>',
-	                    'footer_link'=>Url::to("/user/list")
+	                    'link'=>Url::to("/user/list")
 	                ]);?>
 ```
 
@@ -158,12 +158,12 @@ Usage
 ```
  * Callout
 ```php
-   <?=\insolita\wgadminlte\Callout::widget([
+   <?php \insolita\wgadminlte\Callout::widget([
             'type'=>\insolita\wgadminlte\LteConst::TYPE_WARNING,
             'head'=>'Operation Complete',
             'text'=>'Something text bla-bla-bla bla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-bla'
         ]);?>
- <?=\insolita\wgadminlte\Callout::begin([
+ <?php \insolita\wgadminlte\Callout::begin([
             'type'=>\insolita\wgadminlte\LteConst::TYPE_WARNING,
             'head'=>'Operation Complete'
         ]);?>
@@ -177,6 +177,15 @@ Usage
               'text'=>'Operation Complete',
               'closable'=>true
           ]);?>
+    <?php
+    \insolita\wgadminlte\Alert::begin([
+                 'type'=>\insolita\wgadminlte\LteConst::TYPE_SUCCESS,
+                 'closable'=>true
+             ]);?>
+    Some alert message
+    <?php \insolita\wgadminlte\Alert::end()?>
+
+
 ```
 
 
@@ -246,3 +255,4 @@ Add in layout
 ?>
 ```
 
+![Example](http://dl4.joxi.net/drive/2017/03/25/0008/3019/551883/83/9bb0d4748a.jpg)
