@@ -19,6 +19,8 @@ class LteConst
     const TYPE_DANGER = 'danger';
     const TYPE_WARNING = 'warning';
     
+    const TYPE_WIDGET = 'widget';
+    
     const COLOR_NAVY = 'navy';
     const COLOR_LIGHT_BLUE = 'light-blue';
     const COLOR_BLUE = 'blue';
