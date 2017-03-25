@@ -38,7 +38,7 @@ class CollapseBox extends LteBox
     
     public $collapseButtonTemplate
         = <<<HTML
-<button class="btn btn-{type} btn-xs" data-widget="collapse" id="{uniq}_btn"><i class="fa {iconClass}"></i></button>
+<button class="btn {btnType} btn-xs" data-widget="collapse" id="{uniq}_btn"><i class="fa {iconClass}"></i></button>
 HTML;
     
     protected $uniqId;
@@ -87,7 +87,7 @@ HTML;
         $collapseButton = strtr(
             $this->collapseButtonTemplate,
             [
-                '{type}'      => $this->type,
+                '{btnType}'      => ($this->isTile)?'bg-'.$this->type:'btn-'.$this->type,
                 '{uniq}'      => $this->uniqId,
                 '{iconClass}' => ($this->collapseDefault && !$this->collapseRemember) ? $this->expandIconClass :
                     $this->collapsIconClass,
