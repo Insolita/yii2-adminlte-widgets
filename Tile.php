@@ -7,6 +7,7 @@ use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
 /**
+ * @deprecated use LteBox or CollapseBox instead
  * This is just an example.
  */
 class Tile extends Widget

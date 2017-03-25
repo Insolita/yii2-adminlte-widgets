@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\web\JsExpression;
 
 /**
+ * @deprecated use LteBox or CollapseBox instead
  * This is just an example.
  */
 class Box extends Widget
