@@ -6,8 +6,8 @@ use yii\helpers\Html;
 use yii\bootstrap\Widget;
 
 /**
+ * @deprecated use LteSmallBox instead
  * SmallBox for AdminLte
- * @deprecated use LteBoxInfo instead
  * @see http://joxi.ru/4AkvMeNFR8gd2q
  */
 class SmallBox extends Widget
@@ -31,7 +31,7 @@ class SmallBox extends Widget
 
     /**@var string $type color style of widget* */
 
-    public $type = self::TYPE_LBLUE;
+    public $type = LteConst::TYPE_LBLUE;
 
     /**@var string $head (Big text) * */
     public $head = '';
