@@ -82,14 +82,14 @@ class FlashAlerts extends Widget
         $this->styleParts = array_keys($this->classes);
         $this->icons = [
             'success' => $this->successIcon,
-            'error'   => $this->errorIcon,
-            'info'    => $this->infoIcon,
+            'error' => $this->errorIcon,
+            'info' => $this->infoIcon,
             'warning' => $this->warningIcon,
         ];
         $this->titles = [
             'success' => $this->successTitle,
-            'error'   => $this->errorTitle,
-            'info'    => $this->infoTitle,
+            'error' => $this->errorTitle,
+            'info' => $this->infoTitle,
             'warning' => $this->warningTitle,
         ];
     }
@@ -111,7 +111,7 @@ class FlashAlerts extends Widget
             }
             
             Html::addCssClass($this->options, 'alert');
-            Html::addCssClass($this->options, 'alert-' . ArrayHelper::getValue($this->classes, $flashStyle,'info'));
+            Html::addCssClass($this->options, 'alert-' . ArrayHelper::getValue($this->classes, $flashStyle, 'info'));
             if ($this->closable) {
                 Html::addCssClass($this->options, 'alert-dismissable');
             }
@@ -137,7 +137,7 @@ class FlashAlerts extends Widget
         $text = !$this->encode ? $text : Html::encode($text);
         return Html::tag(
             'div',
-            ArrayHelper::getValue($this->icons, $flashStyle,'')
+            ArrayHelper::getValue($this->icons, $flashStyle, '')
             . (!$this->closable ? ''
                 : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">x</button>')
             . (isset($this->titles[$flashStyle]) ? Html::tag('b', $this->titles[$flashStyle]) : '') . ' '

@@ -14,9 +14,9 @@ namespace insolita\wgadminlte;
 
 class ExampleTimelineItem extends TimelineItem
 {
-
+    
     public $type = '';
-
+    
     public function init()
     {
         if (!$this->iconClass) {
@@ -27,17 +27,17 @@ class ExampleTimelineItem extends TimelineItem
         }
         $this->setTime();
     }
-
+    
     public function setTime()
     {
         $this->time = date('H:i', $this->time);
     }
-
+    
     public function setIconClass()
     {
         $this->iconClass = $this->type == 1 ? 'fa fa-bomb' : 'fa fa-cloud';
     }
-
+    
     public function setIconBg()
     {
         $m = date('n', $this->time);

@@ -1,5 +1,8 @@
 CHANGELOG
 ---------
+04.11.2017 v3.0
+ - php7,2 and yii >=2.0.13 support
+ - Remove deprecated classes
 
 26.03.2017 v2.0
  Replaced: abandoned jquery-cookie library has been replaced with js-cookie (official replacement)

@@ -12,6 +12,7 @@ use \yii\web\AssetBundle;
 
 /**
  * Class ExtAdminlteAsset
+ *
  * @deprecated
  * @package insolita\wgadminlte
  */
@@ -36,7 +37,7 @@ class ExtAdminlteAsset extends AssetBundle
     public $depends
         = [
             'yii\web\YiiAsset',
-            'insolita\wgadminlte\JsCookieAsset'
+            'insolita\wgadminlte\JsCookieAsset',
         ];
 }
 

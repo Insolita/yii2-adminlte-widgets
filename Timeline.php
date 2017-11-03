@@ -116,12 +116,16 @@ class Timeline extends Widget
             $item = '';
             if ($ev->time) {
                 $item .= Html::tag(
-                    'span', Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ' . $ev->time, ['class' => 'time']
+                    'span',
+                    Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ' . $ev->time,
+                    ['class' => 'time']
                 );
             }
             if ($ev->header) {
                 $item .= Html::tag(
-                    'h3', $ev->header, ['class' => 'timeline-header ' . (!$ev->body && !$ev->footer ? 'no-border' : '')]
+                    'h3',
+                    $ev->header,
+                    ['class' => 'timeline-header ' . (!$ev->body && !$ev->footer ? 'no-border' : '')]
                 );
             }
             $item .= Html::tag('div', $ev->body, ['class' => 'timeline-body']);
@@ -129,12 +133,10 @@ class Timeline extends Widget
                 $item .= Html::tag('div', $ev->footer, ['class' => 'timeline-footer']);
             }
             $res .= Html::tag('div', $item, ['class' => 'timeline-item']);
-
         } else {
             throw new InvalidConfigException('event must be instanceof TimelineItem');
         }
-
         return Html::tag('li', $res);
     }
-
 }
+

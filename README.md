@@ -61,13 +61,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~2.0"
+php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~3.0"
 ```
 
 or add
 
 ```
-"insolita/yii2-adminlte-widgets": "~2.0"
+"insolita/yii2-adminlte-widgets": "~3.0"
 ```
 
 to the require section of your `composer.json` file.

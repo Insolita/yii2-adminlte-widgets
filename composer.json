@@ -1,20 +1,20 @@
 {
-    "name": "insolita/yii2-adminlte-widgets",
-    "description": "Widgets for AdminLTE theme (Box with remember collapse state, Timeline, Tile, Callout, SmallBox etc)",
-    "type": "yii2-extension",
-    "keywords": ["yii2","widget","adminlte"],
-    "license": "MIT",
-    "authors": [
+    "name":        "insolita/yii2-adminlte-widgets" ,
+    "description": "Widgets for AdminLTE theme (Box with remember collapse state, Timeline, Tile, Callout, SmallBox etc)" ,
+    "type":        "yii2-extension" ,
+    "keywords":    [ "yii2" , "widget" , "adminlte" ] ,
+    "license":     "MIT" ,
+    "authors":     [
         {
-            "name": "insolita",
+            "name":  "insolita" ,
             "email": "donnainsolita@gmail.com"
         }
-    ],
-    "require": {
-        "yiisoft/yii2": "*",
-	    "bower-asset/js-cookie":"~2.1.0"
-    },
-    "autoload": {
+    ] ,
+    "require":     {
+        "yiisoft/yii2":          ">=2.0.13" ,
+        "bower-asset/js-cookie": "~2.1.0"
+    } ,
+    "autoload":    {
         "psr-4": {
             "insolita\\wgadminlte\\": ""
         }

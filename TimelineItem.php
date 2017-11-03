@@ -8,17 +8,23 @@
 
 namespace insolita\wgadminlte;
 
+use yii\base\BaseObject;
 
-use yii\base\Object;
-
-/**You can extend this object with any other property, getters and setters**/
-class TimelineItem extends Object
+/**
+ * You can extend this object with any other property, getters and setters
+ **/
+class TimelineItem extends BaseObject
 {
     public $time = '';
+    
     public $header = '';
+    
     public $body = '';
+    
     public $footer = '';
+    
     public $iconClass = '';
+    
     public $iconBg = '';
-
+    
 }
