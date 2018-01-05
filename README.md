@@ -1,6 +1,8 @@
 Widgets for AdminLte theme
 ===========================
+
  Use 3.x tags for yii >= 2.0.13
+
  Use 2.x tags for yii < 2.0.13
 
  * Box-widget with support collapse buttons and can save collapsed state in cookie support solid style
@@ -57,13 +59,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~3.0"
+php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~3.1"
 ```
 
 or add
 
 ```
-"insolita/yii2-adminlte-widgets": "~3.0"
+"insolita/yii2-adminlte-widgets": "~3.1"
 ```
 
 to the require section of your `composer.json` file.
