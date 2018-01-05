@@ -1,8 +1,14 @@
 CHANGELOG
 ---------
+06.01.2018 v3.1
+  - Add adminlte 2.4 support
+
 04.11.2017 v3.0
  - php7,2 and yii >=2.0.13 support
  - Remove deprecated classes
+
+ 06.01.2018 v2s.1
+   - Add adminlte 2.4 support
 
 26.03.2017 v2.0
  Replaced: abandoned jquery-cookie library has been replaced with js-cookie (official replacement)
