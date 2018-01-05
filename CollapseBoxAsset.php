@@ -27,7 +27,7 @@ class CollapseBoxAsset extends AssetBundle
      */
     public $js
         = [
-            'collapsebox.js',
+            'collapsebox24.js',
         ];
     
     /**

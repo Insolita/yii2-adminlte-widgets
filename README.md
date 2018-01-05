@@ -29,20 +29,17 @@ If you want use cookie collapsing boxes, set correct dependencies in AssetManage
                  'class'=>'yii\web\AssetManager',
                  'bundles'=>[
                  //--------
-                     'insolita\wgadminlte\ExtAdminlteAsset'=>[
+                    'insolita\wgadminlte\JsCookieAsset'=>[
                          'depends'=>[
                              'yii\web\YiiAsset',
-                             'path\to\AdminLteAsset',
+                             'namespace\for\AdminLteAsset'
+                         ]
+                    ],
+                     'insolita\wgadminlte\CollapseBoxAsset'=>[
+                         'depends'=>[
                              'insolita\wgadminlte\JsCookieAsset'
                          ]
                      ],
-                     'insolita\wgadminlte\JsCookieAsset'=>[
-                           'depends'=>[
-                               'yii\web\YiiAsset',
-                               'path\to\AdminLteAsset'
-                          ]
-                     ],
-
              ],
      ]
 //--------
@@ -61,13 +58,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~2.0"
+php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "~2.1"
 ```
 
 or add
 
 ```
-"insolita/yii2-adminlte-widgets": "~2.0"
+"insolita/yii2-adminlte-widgets": "~2.1"
 ```
 
 to the require section of your `composer.json` file.

@@ -1,5 +1,7 @@
 CHANGELOG
 ---------
+06.01.2018 v2.1
+  - Add adminlte 2.4 support
 
 26.03.2017 v2.0
  Replaced: abandoned jquery-cookie library has been replaced with js-cookie (official replacement)
