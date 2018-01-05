@@ -1,8 +1,7 @@
 Widgets for AdminLte theme
 ===========================
-
-#### Warning! 2.0 version can break compatibilities. For existed projects - recommend stay on 1x branch
-See ChangeLog for more information
+ Use 3.x tags for yii >= 2.0.13
+ Use 2.x tags for yii < 2.0.13
 
  * Box-widget with support collapse buttons and can save collapsed state in cookie support solid style
  * Tile-widget - similar as box, with same options but with background
@@ -29,20 +28,17 @@ If you want use cookie collapsing boxes, set correct dependencies in AssetManage
                  'class'=>'yii\web\AssetManager',
                  'bundles'=>[
                  //--------
-                     'insolita\wgadminlte\ExtAdminlteAsset'=>[
-                         'depends'=>[
-                             'yii\web\YiiAsset',
-                             'path\to\AdminLteAsset',
-                             'insolita\wgadminlte\JsCookieAsset'
-                         ]
-                     ],
                      'insolita\wgadminlte\JsCookieAsset'=>[
                            'depends'=>[
                                'yii\web\YiiAsset',
-                               'path\to\AdminLteAsset'
+                                'namespace\for\AdminLteAsset',
                           ]
                      ],
-
+                      'insolita\wgadminlte\CollapseBoxAsset'=>[
+                            'depends'=>[
+                                'insolita\wgadminlte\JsCookieAsset'
+                            ]
+                      ],
              ],
      ]
 //--------
