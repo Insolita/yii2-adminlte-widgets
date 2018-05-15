@@ -124,7 +124,7 @@ Usage
              'title'=>'Управление пользователями',
          ])?>
         ANY BOX CONTENT HERE
-    <?php \insolita\wgadminlte\LteBox::end()?>
+    <?php \insolita\wgadminlte\CollapseBox::end()?>
 ```
 
  * SmallBox
