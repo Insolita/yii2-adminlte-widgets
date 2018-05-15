@@ -98,7 +98,6 @@ Usage
                'isTile'=>true
            ])?>
         ANY BOX CONTENT HERE
-         ANY BOX CONTENT HERE 
    <?php \insolita\wgadminlte\LteBox::end()?>
 ```
  * Box with content as property
