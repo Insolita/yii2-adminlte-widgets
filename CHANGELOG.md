@@ -1,5 +1,7 @@
 CHANGELOG
 ---------
+16.05.2018 v3.1.1
+  - fix #17
 06.01.2018 v3.1
   - Add adminlte 2.4 support
 
