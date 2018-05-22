@@ -33,7 +33,7 @@ If you want use cookie collapsing boxes, set correct dependencies in AssetManage
                      'insolita\wgadminlte\JsCookieAsset'=>[
                            'depends'=>[
                                'yii\web\YiiAsset',
-                                'namespace\for\AdminLteAsset',
+                               'namespace\for\AdminLteAsset', // for example 'dmstr\web\AdminLteAsset', if we use https://github.com/dmstr/yii2-adminlte-asset
                           ]
                      ],
                       'insolita\wgadminlte\CollapseBoxAsset'=>[
@@ -98,7 +98,6 @@ Usage
                'isTile'=>true
            ])?>
         ANY BOX CONTENT HERE
-         ANY BOX CONTENT HERE 
    <?php \insolita\wgadminlte\LteBox::end()?>
 ```
  * Box with content as property
@@ -124,7 +123,7 @@ Usage
              'title'=>'Управление пользователями',
          ])?>
         ANY BOX CONTENT HERE
-    <?php \insolita\wgadminlte\LteBox::end()?>
+    <?php \insolita\wgadminlte\CollapseBox::end()?>
 ```
 
  * SmallBox
