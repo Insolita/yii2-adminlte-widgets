@@ -185,18 +185,19 @@ Usage
 
 ```
 
-
+ * FlashAlerts
+ 
 Add in layout
 
 ```php
-<?=\insolita\wgadminlte\FlashAlerts::widget([
-                'errorIcon'=>'<i class="fa fa-warning"></i>',
-                'successIcon'=>'<i class="fa fa-check"></i>',
-                'successTitle'=>'Done!',
-                'closable'=>true,
-                'encode'=>false,
-                'bold'=>false
-                ]);?>
+    <?= \insolita\wgadminlte\FlashAlerts::widget([
+        'errorIcon' => '<i class="fa fa-warning"></i>',
+        'successIcon' => '<i class="fa fa-check"></i>',
+        'successTitle' => 'Done!', //for non-titled type like 'success-first'
+        'closable' => true,
+        'encode' => false,
+        'bold' => false,
+    ]); ?>
 ```
 
 And set flash messages anywhere
