@@ -207,7 +207,6 @@ class LteSetup extends Widget
     public function init()
     {
         parent::init();
-        $options = get_object_vars($this);
         $this->getView()->registerJs(
             new JsExpression('var AdminLTEOptions = ' . Json::encode(get_object_vars($this))),
             View::POS_HEAD
