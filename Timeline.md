@@ -8,49 +8,37 @@ Usage
 
 
 ```php
-<?= \insolita\wgadminlte\Timeline::widget(
-        [
-            'defaultDateBg' => \insolita\wgadminlte\Timeline::TYPE_PURPLE, //default background for deate label
-            'items' => [
-					'1381767094'=>[
-					     Yii::createObject(
-                                     [
-                                         'class' => \insolita\wgadminlte\TimelineItem::className(),
-                                         'time' => 1381767094,
-                                         'header' =>'SOME HEADER',
-                                         'body' => 'Well, i`m informative body'
-                                         'iconClass'=>'fa fa-beer',
-                                         'iconBg'=>'orange'
-                                     ]
-                                 ),
-                         Yii::createObject(
-                                      [
-                                          'class' => \insolita\wgadminlte\TimelineItem::className(),
-                                          'time' => 1381767098,
-                                          'header' =>'SOME HEADER',
-                                          'iconClass'=>'fa fa-beer',
-                                          'iconBg'=>'green'
-                                      ]
-                                          )
-
-					],
-					'1400880100'=>[
-					      Yii::createObject(
-                                    [
-                                        'class' => \insolita\wgadminlte\TimelineItem::className(),
-                                        'time' => 1400880100,
-                                        'body' => 'Well, i`m informative body'
-                                        'iconClass'=>'fa fa-cloud',
-                                        'iconBg'=>insolita\wgadminlte\Timeline::TYPE_BLUE'
-                                    ]
-                                ),
-                                 ],
-				    '1353182717'=>[....],
-					'1331361126'=>[....],
+<?=
+\insolita\wgadminlte\Timeline::widget(
+    [
+        'dateFunc' => function ($data) { return date('d.m, Y', $data); },
+        'defaultDateBg' => \insolita\wgadminlte\Timeline::TYPE_PURPLE, //default background for deate label
+        'items' => [
+			'1381767094'=>[
+				Yii::createObject(
+                    [
+                        'class' => \insolita\wgadminlte\TimelineItem::className(),
+                        'time' => 1381767094,
+                        'header' =>'SOME HEADER',
+                        'body' => 'Well, i`m informative body',
+                        'iconClass'=>'fa fa-beer',
+                        'iconBg'=>'orange'
+                    ]
+                ),
+                Yii::createObject(
+                    [
+                        'class' => \insolita\wgadminlte\TimelineItem::className(),
+                        'time' => 1381767098,
+                        'header' =>'SOME HEADER',
+                        'iconClass'=>'fa fa-beer',
+                        'iconBg'=>'green'
+                    ]
+                )
             ],
-            'dataFunc' => function ($data) { return date('d.m, Y', $data); }
-        ]
-    ) ?>
+        ],
+    ]
+)
+?>
 ```
 
 Example TimeLine Generator
