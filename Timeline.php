@@ -114,12 +114,9 @@ class Timeline extends Widget
         if ($ev instanceof TimelineItem) {
             $res .= '<i class="' . $ev->iconClass . ' bg-' . $ev->iconBg . '"></i>';
             $item = '';
+            $clockIcon = $ev->showClockIcon ? Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ': '';
             if ($ev->time) {
-                $item .= Html::tag(
-                    'span',
-                    Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ' . $ev->time,
-                    ['class' => 'time']
-                );
+                $item .= Html::tag( 'span', $clockIcon . $ev->time, ['class' => 'time'] );
             }
             if ($ev->header) {
                 $item .= Html::tag(

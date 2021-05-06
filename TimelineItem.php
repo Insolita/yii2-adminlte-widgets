@@ -16,6 +16,8 @@ use yii\base\BaseObject;
 class TimelineItem extends BaseObject
 {
     public $time = '';
+
+    public $showClockIcon = true;
     
     public $header = '';
     
