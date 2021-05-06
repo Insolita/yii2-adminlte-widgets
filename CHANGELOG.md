@@ -1,5 +1,7 @@
 CHANGELOG
 ---------
+07.05.2021 v.3.2
+  - Add flag for optional show clock icon in timeline
 16.05.2018 v3.1.1
   - fix #17
 06.01.2018 v3.1
