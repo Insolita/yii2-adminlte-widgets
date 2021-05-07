@@ -3,8 +3,8 @@
 namespace insolita\wgadminlte;
 
 use yii\base\InvalidConfigException;
-use yii\helpers\Html;
 use yii\base\Widget;
+use yii\helpers\Html;
 
 /**
  * This is just an example.
@@ -73,10 +73,20 @@ class Timeline extends Widget
      **/
     public $dateFunc = null;
 
+    /**
+     * If true, only list items without wrapper will be rendered
+     * @var bool
+     */
+    public $itemsOnly = false;
+
 
     public function run()
     {
-        echo Html::tag('ul', $this->renderItems(), ['class' => 'timeline']);
+        if ($this->itemsOnly) {
+            echo $this->renderItems();
+        } else {
+            echo Html::tag('ul', $this->renderItems(), ['class' => 'timeline', 'id' => $this->getId()]);
+        }
     }
 
     public function renderItems()
@@ -114,9 +124,9 @@ class Timeline extends Widget
         if ($ev instanceof TimelineItem) {
             $res .= '<i class="' . $ev->iconClass . ' bg-' . $ev->iconBg . '"></i>';
             $item = '';
-            $clockIcon = $ev->showClockIcon ? Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ': '';
+            $clockIcon = $ev->showClockIcon ? Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ' : '';
             if ($ev->time) {
-                $item .= Html::tag( 'span', $clockIcon . $ev->time, ['class' => 'time'] );
+                $item .= Html::tag('span', $clockIcon . $ev->time, ['class' => 'time']);
             }
             if ($ev->header) {
                 $item .= Html::tag(
