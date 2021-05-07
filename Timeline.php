@@ -5,6 +5,7 @@ namespace insolita\wgadminlte;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\Html;
+use function array_merge;
 
 /**
  * This is just an example.
@@ -79,6 +80,12 @@ class Timeline extends Widget
      */
     public $itemsOnly = false;
 
+    /**
+     * Common options for timeline-item elements
+     * @var array
+    */
+    public $itemOptions = [];
+
 
     public function run()
     {
@@ -135,11 +142,13 @@ class Timeline extends Widget
                     ['class' => 'timeline-header ' . (!$ev->body && !$ev->footer ? 'no-border' : '')]
                 );
             }
-            $item .= Html::tag('div', $ev->body, ['class' => 'timeline-body']);
+            $bodyOptions = array_merge(['class' => 'timeline-body'], $ev->bodyOptions);
+            $item .= Html::tag('div', $ev->body, $bodyOptions);
             if ($ev->footer) {
                 $item .= Html::tag('div', $ev->footer, ['class' => 'timeline-footer']);
             }
-            $res .= Html::tag('div', $item, ['class' => 'timeline-item']);
+            $itemOptions = array_merge(['class' => 'timeline-item'], $this->itemOptions);
+            $res .= Html::tag('div', $item, $itemOptions);
         } else {
             throw new InvalidConfigException('event must be instanceof TimelineItem');
         }

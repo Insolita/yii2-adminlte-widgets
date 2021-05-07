@@ -28,5 +28,7 @@ class TimelineItem extends BaseObject
     public $iconClass = '';
     
     public $iconBg = '';
+
+    public $bodyOptions = [];
     
 }

@@ -1,9 +1,14 @@
 CHANGELOG
 ---------
-07.05.2021 v.3.2.1
+07.05.2021
+v.3.2.2
+- Add property itemOptions for Timeline
+- Add property bodyOptions for TimelineItem
+
+v.3.2.1
 - Add itemsOnly flag for render items without wrap in <ul class="timeline">
 
-07.05.2021 v.3.2
+v.3.2
   - Add flag for optional show clock icon in timeline
 
 16.05.2018 v3.1.1
