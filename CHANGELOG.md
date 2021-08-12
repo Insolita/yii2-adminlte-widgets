@@ -1,5 +1,8 @@
 CHANGELOG
 ---------
+v3.2.3
+- Add linkOptions for LteSmallBox
+
 07.05.2021
 v.3.2.2
 - Add property itemOptions for Timeline

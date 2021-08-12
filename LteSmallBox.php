@@ -50,7 +50,9 @@ class LteSmallBox extends Widget
      * @var string $link link for footer*
      */
     public $link = '#';
-    
+
+    /**@var array additional link options*/
+    public $linkOptions = [];
     /**
      * @var string
      */
@@ -64,7 +66,7 @@ class LteSmallBox extends Widget
             <div class="icon">
               {icon}
             </div>
-            <a href="{link}" class="small-box-footer">
+            <a href="{link}" {linkOptions} >
               {footer} <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
@@ -77,7 +79,7 @@ HTML;
     {
         Html::addCssClass($this->options, 'small-box');
         Html::addCssClass($this->options, 'bg-' . $this->type);
-        
+        Html::addCssClass($this->linkOptions, 'small-box-footer');
         return strtr(
             $this->template,
             [
@@ -87,6 +89,7 @@ HTML;
                 '{icon}'   => '<i class="' . $this->icon . '"></i>',
                 '{footer}' => $this->footer,
                 '{link}'   => $this->link,
+                '{linkOptions}'=>Html::renderTagAttributes($this->linkOptions),
             ]
         );
     }
